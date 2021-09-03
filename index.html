@@ -6,9 +6,10 @@
         list-style: none;
       }
      hr{margin:40px 0;}
+     a {text-decoration:none;}
 </style>
 
-complex problems, simple solutions... <i>less drama</i> | <a href="https://github.com/coinkite/bitcoinbinary.org">contribute</a> | <a href="https://twitter.com/nvk">have questions? ask @nvk</a>
+Complex problems, simple solutions... <i>less drama</i> | <a href="https://github.com/coinkite/bitcoinbinary.org">contribute here</a> | <a href="https://twitter.com/nvk">have questions? ask @nvk</a>
 
 
 <pre>
@@ -34,6 +35,38 @@ complex problems, simple solutions... <i>less drama</i> | <a href="https://githu
      <li><a href="https://github.com/trezor/trezor-firmware/blob/master/core/CHANGELOG.md#241-14th-july-2021">2021-07-14</a> | <a href="https://trezor.io/">Trezor T</a>  | <a href="https://github.com/trezor/trezor-firmware/tree/core/v2.4.1">core/v2.4.1</a> | firmware.bin | af8f56d4e441c36681966e63af58b1bee9acba293165f4f01b767e935be56714 | <a href="https://www.twitch.tv/videos/1137461454">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
      <li><a href="https://github.com/trezor/trezor-firmware/blob/legacy/v1.10.2/legacy/firmware/CHANGELOG.md#1102-14th-july-2021">2021-07-14</a> | <a href="https://trezor.io/">Trezor T</a>  | <a href="https://github.com/trezor/trezor-firmware/tree/legacy/v1.10.2">legacy/v1.10.2</a> | firmware.bin | a0d77700aa0e815d1d1d17423139ebddf04a03a689689cba4270e2f163daafac | <a href="https://www.twitch.tv/videos/1137495856">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
 </ul>
+<hr>
+
+<b>Definitions from reproducible-builds.org</b>
+
+<b>When is a build reproducible?</b>
+<p>A build is <strong>reproducible</strong> if given the same source code, build environment
+and build instructions, any party can recreate bit-by-bit identical copies of
+all specified artifacts.</p>
+
+<p>The relevant attributes of the build environment, the build instructions and
+the source code as well as the expected reproducible artifacts are defined by
+the authors or distributors. The artifacts of a build are the parts of the
+build results that are the desired primary output.</p>
+
+<b>Explanations</b>
+<p><strong>Source code</strong> is usually a checkout from version control at a specific
+revision or a source code archive.</p>
+
+<p><strong>Relevant attributes of the build environment</strong> would usually include
+dependencies and their versions, build configuration flags and environment
+variables as far as they are used by the build system (eg. the locale). It is
+preferable to reduce this set of attributes.</p>
+
+<p><strong>Artifacts</strong> would include executables, distribution packages or filesystem
+images. They would not usually include build logs or similar ancillary outputs.</p>
+
+<p>The reproducibility of artifacts is <strong>verified</strong> by bit-by-bit comparison. This
+is usually performed using cryptographically secure hash functions.</p>
+
+<p><strong>Authors or distributors</strong> means parties that claim reproducibility of a set
+of artifacts. These may be upstream authors, distribution maintainers or any
+other distributor.</p>
 
 <hr>
 donate bc1qh4f9t2gp2mhy0fqz4k6a4yh6krvd792ecswfxy
