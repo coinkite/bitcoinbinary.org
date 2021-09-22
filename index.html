@@ -1,11 +1,63 @@
 <style>
-     ul {list-style: none;}
-     ol {list-style: none;}
-     hr{margin:40px 0;}
-     a {text-decoration:none;}
-     body{max-width:1180px;margin: 10px auto;font-family:sans-serif;}
-     .header{text-align:center;}
-     pre{font-size: 2em;font-family: monospace;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body{max-width:1180px;margin: 10px auto;font-family:sans-serif;}
+ul,ol {list-style: none;margin-bottom:10px;}
+.log {border: 1px solid #ddd;display:block;width:100%;}
+.log li{display:inline-block;width:99%;padding:2px 6px;}
+.log li:nth-child(even) {background: #eee;}
+hr{margin:40px 0;}
+a {text-decoration:none;}
+.header{text-align:center;}
+pre{font-size: 2em;font-family: monospace;}
+b{font-weight:bold;}
+p{margin-bottom:10px;}
+h1{font-size:2em;font-weight:bold;margin-bottom:20px;}
+h2{font-size:1.2em;font-weight:bold;margin-bottom:16px;}
+.project-name, .cta{font-weight:bold;}
 </style>
 <section class="header">
 
@@ -40,27 +92,27 @@ Complex problems, simple solutions... <i>less drama</i> | <a href="https://githu
 --->
 <hr>
 
-<b>Binary Log:</b>
-<ul>
-     <li><a href="https://github.com/Blockstream/green_android/releases/tag/release_3.7.1">2021-09-16</a> | <a href="https://blockstream.com/green/">Blockstream Green</a>  | <a href="https://github.com/Blockstream/green_android/releases/tag/release_3.7.1">v3.7.1</a> | <a href="https://github.com/Blockstream/green_android/releases/download/release_3.7.1/SHA256SUMS.asc"> 61d033cc36075f51fd234bc2cb699e1c73bd5070ddcddba54c0aa5fe2cc4cc14 </a> | <a href="https://youtu.be/Lm346QcHkf4">video proof</a> | <a href="https://gist.github.com/eriknylund/d9cf18391e5f0717e398139b9ad9e7e1">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
-     <li><a href="https://bitcoincore.org/en/2021/09/13/release-22.0/">2021-09-13</a> | <a href="https://bitcoincore.org/">Bitcoin Core</a>  | <a href="https://bitcoincore.org/en/download/">v22.0</a> | <a href="https://github.com/bitcoin-core/guix.sigs/commit/d80eb99327666f6a12a3326a33848b532d3ca40f"> v22.0 all.SHA256SUMS </a>| <a href="https://youtu.be/329vghcGP9w">video proof</a> | <a href="https://gist.github.com/eriknylund/a58d7587f785881eee0aea10bba60546">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
-     <li><a href="https://github.com/sparrowwallet/sparrow/releases/tag/1.5.0-beta1">2021-09-06</a> | <a href="https://sparrowwallet.com/">Sparrow Wallet</a>  | <a href="https://github.com/sparrowwallet/sparrow/releases/tag/1.5.0-beta1">v1.5.0-beta1</a> | <a href="https://github.com/sparrowwallet/sparrow/releases/download/1.5.0-beta1/sparrow-1.5.0-beta1-manifest.txt"> 009ad3370ea6d97217a96fc610868dc4de5faceacf6f1c9886f4d655bad0ec99</a> | <a href="https://youtu.be/quQiDk6iJAU">video proof</a> | <a href="https://gist.github.com/eriknylund/dbfd0750ff30de40bf15bd14d5c5afe5">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
-     <li><a href="https://twitter.com/COLDCARDwallet/status/1433495331438747648?s=20">2021-09-02</a> | <a href="https://coldcardwallet.com/">COLDCARD</a>  | <a href="https://github.com/Coldcard/firmware/releases/tag/2021-09-02T1752-v4.1.3">v4.1.3</a> | <a href="https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt"> factory dedfcf8385e35dbdbb26b92f8c0667105404062ad83c8830d809cf9193434d9c </a>| <a href="https://www.youtube.com/watch?v=uX_iSYN9RjQ">video proof</a> | <a href="https://gist.github.com/xavierfiechter/0b7323318ada8937f817606dff8fdb57">notes</a> | <a href="https://github.com/xavierfiechter">xavierfiechter</a>
-     <li><a href="https://twitter.com/COLDCARDwallet/status/1433495331438747648?s=20">2021-09-02</a> | <a href="https://coldcardwallet.com/">COLDCARD</a>  | <a href="https://github.com/Coldcard/firmware/releases/tag/2021-09-02T1752-v4.1.3">v4.1.3</a> | <a href="https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt"> factory dedfcf8385e35dbdbb26b92f8c0667105404062ad83c8830d809cf9193434d9c </a> | <a href="https://www.twitch.tv/videos/1137191315">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
-     <li><a href="https://github.com/lightningnetwork/lnd/releases/tag/v0.13.1-beta">2021-07-20</a> | <a href="https://github.com/lightningnetwork/lnd">LND</a>  | <a href="https://lightning.engineering/">v0.13.1-beta</a> | <a href="https://github.com/lightningnetwork/lnd/releases/download/v0.13.1-beta/manifest-v0.13.1-beta.txt"> manifest-v0.13.1-beta.tx </a>| <a href="https://youtu.be/k3Hmy-wpdHE">video proof</a> | no notes | <a href="https://github.com/benthecarman">benthecarman</a>
-     <li><a href="https://github.com/spesmilo/electrum/blob/master/RELEASE-NOTES">2021-07-19</a> | <a href="https://electrum.org">Electrum</a>  | <a href="https://github.com/spesmilo/electrum/releases/tag/4.1.5">4.1.5</a> | <a href="https://download.electrum.org/4.1.5/Electrum-4.1.5.tar.gz.ThomasV.asc"> 91472e281f604a7a687faa4b339bf5e484bd2bec82a495ea45bfa014e52719a1 </a> | <a href="https://youtu.be/LGBYCIJp_T4">video proof</a> | <a href="https://gist.github.com/eriknylund/ad768adf63fe52cd07aa3cb84e195d7f">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
-     <li><a href="https://github.com/trezor/trezor-firmware/blob/master/core/CHANGELOG.md#241-14th-july-2021">2021-07-14</a> | <a href="https://trezor.io/">Trezor T</a>  | <a href="https://github.com/trezor/trezor-firmware/tree/core/v2.4.1">core/v2.4.1</a> | <a href="https://data.trezor.io/firmware/2/trezor-2.4.1.bin">factory b8925f4fcfd34f3b8cfdcbcf68183565953f14f00448e437f68b8cd8c6abb6e0</a> | <a href="https://www.twitch.tv/videos/1137461454">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
-     <li><a href="https://github.com/trezor/trezor-firmware/blob/legacy/v1.10.2/legacy/firmware/CHANGELOG.md#1102-14th-july-2021">2021-07-14</a> | <a href="https://trezor.io/">Trezor 1</a>  | <a href="https://github.com/trezor/trezor-firmware/tree/legacy/v1.10.2">legacy/v1.10.2</a> | <a href="https://data.trezor.io/firmware/1/trezor-1.10.2.bin">factory 7ed716b2813f8b81983700e6d286f6ff17a17e830cb85954fe31e9a7ec9388b8</a> | <a href="https://www.twitch.tv/videos/1137495856">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
-     <li><a href="https://github.com/digitalbitbox/bitbox02-firmware/releases/tag/firmware%2Fv9.6.0">2021-05-20</a> | <a href="https://shiftcrypto.ch/bitbox02/">BitBox02</a>  | <a href="https://github.com/digitalbitbox/bitbox02-firmware/tree/firmware/v9.6.0">v9.6.0</a> | <a href="https://github.com/digitalbitbox/bitbox02-firmware/releases/download/firmware-btc-only%2Fv9.6.0/firmware-btc.v9.6.0.signed.bin">factory 13bffb0824ca6be959dd73c9ede6e374f9f4df7b090d521b54758dd971fa6bf1</a> | <a href="https://www.twitch.tv/videos/1138063795">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
-     <li><a href="https://github.com/zkSNACKs/WalletWasabi/releases/tag/v1.1.12">2020-08-05</a> | <a href="https://wasabiwallet.io/">Wasabi Wallet</a>  | <a href="https://github.com/zkSNACKs/WalletWasabi/releases/tag/v1.1.12">v1.1.12</a> | <a href="https://github.com/zkSNACKs/WalletWasabi/releases/download/v1.1.12/Wasabi-1.1.12.msi">factory 9aef2cf3f76a479c3d0425fc4e5a42b2cfb30406b1d62ff8cc60e602c4f97e39</a> | <a href="https://youtu.be/t88xcZw5PX4">video proof</a> | <a href="https://gist.github.com/eriknylund/1cef7d03fe0e659f1849683df520bb73">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>          
-     <li> Submit repro build proof<a href="https://github.com/coinkite/bitcoinbinary.org/pulls"> here</a>
+<h2>Binary Log:</h2>
+<ul class="log">
+     <li><a href="https://github.com/Blockstream/green_android/releases/tag/release_3.7.1">2021-09-16</a> | <a href="https://blockstream.com/green/" class="project-name">Blockstream Green</a>  | <a href="https://github.com/Blockstream/green_android/releases/tag/release_3.7.1">v3.7.1</a> | <a href="https://github.com/Blockstream/green_android/releases/download/release_3.7.1/SHA256SUMS.asc"> 61d033cc36075f51fd234bc2cb699e1c73bd5070ddcddba54c0aa5fe2cc4cc14 </a> | <a href="https://youtu.be/Lm346QcHkf4">video proof</a> | <a href="https://gist.github.com/eriknylund/d9cf18391e5f0717e398139b9ad9e7e1">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
+     <li><a href="https://bitcoincore.org/en/2021/09/13/release-22.0/">2021-09-13</a> | <a href="https://bitcoincore.org/" class="project-name">Bitcoin Core</a>  | <a href="https://bitcoincore.org/en/download/">v22.0</a> | <a href="https://github.com/bitcoin-core/guix.sigs/commit/d80eb99327666f6a12a3326a33848b532d3ca40f"> v22.0 all.SHA256SUMS </a>| <a href="https://youtu.be/329vghcGP9w">video proof</a> | <a href="https://gist.github.com/eriknylund/a58d7587f785881eee0aea10bba60546">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
+     <li><a href="https://github.com/sparrowwallet/sparrow/releases/tag/1.5.0-beta1">2021-09-06</a> | <a href="https://sparrowwallet.com/" class="project-name">Sparrow Wallet</a>  | <a href="https://github.com/sparrowwallet/sparrow/releases/tag/1.5.0-beta1">v1.5.0-beta1</a> | <a href="https://github.com/sparrowwallet/sparrow/releases/download/1.5.0-beta1/sparrow-1.5.0-beta1-manifest.txt"> 009ad3370ea6d97217a96fc610868dc4de5faceacf6f1c9886f4d655bad0ec99</a> | <a href="https://youtu.be/quQiDk6iJAU">video proof</a> | <a href="https://gist.github.com/eriknylund/dbfd0750ff30de40bf15bd14d5c5afe5">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
+     <li><a href="https://twitter.com/COLDCARDwallet/status/1433495331438747648?s=20">2021-09-02</a> | <a href="https://coldcardwallet.com/" class="project-name">COLDCARD</a>  | <a href="https://github.com/Coldcard/firmware/releases/tag/2021-09-02T1752-v4.1.3">v4.1.3</a> | <a href="https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt"> factory dedfcf8385e35dbdbb26b92f8c0667105404062ad83c8830d809cf9193434d9c </a>| <a href="https://www.youtube.com/watch?v=uX_iSYN9RjQ">video proof</a> | <a href="https://gist.github.com/xavierfiechter/0b7323318ada8937f817606dff8fdb57">notes</a> | <a href="https://github.com/xavierfiechter">xavierfiechter</a>
+     <li><a href="https://twitter.com/COLDCARDwallet/status/1433495331438747648?s=20">2021-09-02</a> | <a href="https://coldcardwallet.com/" class="project-name">COLDCARD</a>  | <a href="https://github.com/Coldcard/firmware/releases/tag/2021-09-02T1752-v4.1.3">v4.1.3</a> | <a href="https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt"> factory dedfcf8385e35dbdbb26b92f8c0667105404062ad83c8830d809cf9193434d9c </a> | <a href="https://www.twitch.tv/videos/1137191315">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
+     <li><a href="https://github.com/lightningnetwork/lnd/releases/tag/v0.13.1-beta">2021-07-20</a> | <a href="https://github.com/lightningnetwork/lnd" class="project-name">LND</a>  | <a href="https://lightning.engineering/">v0.13.1-beta</a> | <a href="https://github.com/lightningnetwork/lnd/releases/download/v0.13.1-beta/manifest-v0.13.1-beta.txt"> manifest-v0.13.1-beta.tx </a>| <a href="https://youtu.be/k3Hmy-wpdHE">video proof</a> | no notes | <a href="https://github.com/benthecarman">benthecarman</a>
+     <li><a href="https://github.com/spesmilo/electrum/blob/master/RELEASE-NOTES">2021-07-19</a> | <a href="https://electrum.org" class="project-name">Electrum</a>  | <a href="https://github.com/spesmilo/electrum/releases/tag/4.1.5">4.1.5</a> | <a href="https://download.electrum.org/4.1.5/Electrum-4.1.5.tar.gz.ThomasV.asc"> 91472e281f604a7a687faa4b339bf5e484bd2bec82a495ea45bfa014e52719a1 </a> | <a href="https://youtu.be/LGBYCIJp_T4">video proof</a> | <a href="https://gist.github.com/eriknylund/ad768adf63fe52cd07aa3cb84e195d7f">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>
+     <li><a href="https://github.com/trezor/trezor-firmware/blob/master/core/CHANGELOG.md#241-14th-july-2021">2021-07-14</a> | <a href="https://trezor.io/" class="project-name">Trezor T</a>  | <a href="https://github.com/trezor/trezor-firmware/tree/core/v2.4.1">core/v2.4.1</a> | <a href="https://data.trezor.io/firmware/2/trezor-2.4.1.bin">factory b8925f4fcfd34f3b8cfdcbcf68183565953f14f00448e437f68b8cd8c6abb6e0</a> | <a href="https://www.twitch.tv/videos/1137461454">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
+     <li><a href="https://github.com/trezor/trezor-firmware/blob/legacy/v1.10.2/legacy/firmware/CHANGELOG.md#1102-14th-july-2021">2021-07-14</a> | <a href="https://trezor.io/" class="project-name">Trezor 1</a>  | <a href="https://github.com/trezor/trezor-firmware/tree/legacy/v1.10.2">legacy/v1.10.2</a> | <a href="https://data.trezor.io/firmware/1/trezor-1.10.2.bin">factory 7ed716b2813f8b81983700e6d286f6ff17a17e830cb85954fe31e9a7ec9388b8</a> | <a href="https://www.twitch.tv/videos/1137495856">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
+     <li><a href="https://github.com/digitalbitbox/bitbox02-firmware/releases/tag/firmware%2Fv9.6.0">2021-05-20</a> | <a href="https://shiftcrypto.ch/bitbox02/" class="project-name">BitBox02</a>  | <a href="https://github.com/digitalbitbox/bitbox02-firmware/tree/firmware/v9.6.0">v9.6.0</a> | <a href="https://github.com/digitalbitbox/bitbox02-firmware/releases/download/firmware-btc-only%2Fv9.6.0/firmware-btc.v9.6.0.signed.bin">factory 13bffb0824ca6be959dd73c9ede6e374f9f4df7b090d521b54758dd971fa6bf1</a> | <a href="https://www.twitch.tv/videos/1138063795">video proof</a> | no notes | <a href="https://github.com/achow101">achow101</a>
+     <li><a href="https://github.com/zkSNACKs/WalletWasabi/releases/tag/v1.1.12">2020-08-05</a> | <a href="https://wasabiwallet.io/" class="project-name">Wasabi Wallet</a>  | <a href="https://github.com/zkSNACKs/WalletWasabi/releases/tag/v1.1.12">v1.1.12</a> | <a href="https://github.com/zkSNACKs/WalletWasabi/releases/download/v1.1.12/Wasabi-1.1.12.msi">factory 9aef2cf3f76a479c3d0425fc4e5a42b2cfb30406b1d62ff8cc60e602c4f97e39</a> | <a href="https://youtu.be/t88xcZw5PX4">video proof</a> | <a href="https://gist.github.com/eriknylund/1cef7d03fe0e659f1849683df520bb73">notes</a> | <a href="https://github.com/eriknylund">eriknylund</a>          
 </ul>
+
+<p class="cta"> Submit repro build proof<a href="https://github.com/coinkite/bitcoinbinary.org/pulls"> here</a></p>
 <hr>
 
-<b>Definitions from reproducible-builds.org</b>
-<br><br>
+<h2>Definitions from reproducible-builds.org</h2>
 <b>When is a build reproducible?</b>
-<p>A build is <strong>reproducible</strong> if given the same source code, build environment
+<p>A build is <b>reproducible</b> if given the same source code, build environment
 and build instructions, any party can recreate bit-by-bit identical copies of
 all specified artifacts.</p>
 
@@ -70,10 +122,10 @@ the authors or distributors. The artifacts of a build are the parts of the
 build results that are the desired primary output.</p>
 
 <b>Explanations</b>
-<p><strong>Source code</strong> is usually a checkout from version control at a specific
+<p><b>Source code</b> is usually a checkout from version control at a specific
 revision or a source code archive.</p>
 
-<p><strong>Relevant attributes of the build environment</strong> would usually include
+<p><b>Relevant attributes of the build environment</b> would usually include
 dependencies and their versions, build configuration flags and environment
 variables as far as they are used by the build system (eg. the locale). It is
 preferable to reduce this set of attributes.</p>
@@ -84,14 +136,13 @@ images. They would not usually include build logs or similar ancillary outputs.<
 <p>The reproducibility of artifacts is <strong>verified</strong> by bit-by-bit comparison. This
 is usually performed using cryptographically secure hash functions.</p>
 
-<p><strong>Authors or distributors</strong> means parties that claim reproducibility of a set
+<p><b>Authors or distributors</b> means parties that claim reproducibility of a set
 of artifacts. These may be upstream authors, distribution maintainers or any
 other distributor.</p>
 
 <hr>
-donate bc1qh4f9t2gp2mhy0fqz4k6a4yh6krvd792ecswfxy
-<br>
-<b>donation log:</b>
-<ul>
-     <li> 2021-09-06 06:24 0.02499808 Bounty Paid to @achow101
-     <li> 2021-09-02 9:25 0.025 BTC by <a href="https://coinkite.com">Coinkite</a>
+<p>donate bc1qh4f9t2gp2mhy0fqz4k6a4yh6krvd792ecswfxy</p>
+<h2>donation log:</h2>
+<ul class="log">
+     <li> 2021-09-06 06:24 | 0.02499808 Bounty Paid to @achow101
+     <li> 2021-09-02 09:25 | 0.025 BTC by <a href="https://coinkite.com">Coinkite</a>
