@@ -46,9 +46,8 @@ table {
 	border-spacing: 0;
 }
 
-body{max-width:1180px;margin: 10px auto;font-family:sans-serif;}
-ul,ol {list-style: none;margin-bottom:10px;}
-.log {border: 1px solid #ddd;display:block;width:100%;}
+body{margin: 0px;font-family:sans-serif;width:100%;}
+.log {border: 1px solid #ddd;display:block;width:100%;list-style: none;margin-bottom:10px;}
 .log li{display:inline-block;width:99%;padding:2px 6px;}
 .log li:nth-child(even) {background: #eee;}
 .log li:hover{background:#ddd;}
@@ -61,14 +60,26 @@ p{margin-bottom:10px;}
 h1{font-size:2em;font-weight:bold;margin-bottom:20px;}
 h2{font-size:1.2em;font-weight:bold;margin-bottom:16px;}
 .project-name, .cta{font-weight:bold;}
+.menu{display:block;top:0;width:100%;background:#eee;padding:0px 10px;text-align:center;margin-bottom:40px;}
+.header{width:100%;max-width:1180px;text-align:center;margin: 0px auto;display:block;}
+.content{width:100%;max-width:1180px;text-align:left;margin: 0px auto;display:block;}
+i{font-style: italic;}
+.menu li{display:inline-block;padding:4px 0px;}
+.menu ul > li + li {margin-left: 10px;padding-left: 10px;border-left: 1px solid #ccc;}
 </style>
+<section class="menu">
+<ul>
+	<li><a href="https://github.com/coinkite/bitcoinbinary.org">BitcoinBinary.org</a> 
+	<li>Contribute <a href="https://github.com/coinkite/bitcoinbinary.org">Here</a> 
+	<li><a href="https://twitter.com/nvk">Questions? ask @nvk</a> 
+	<li><a href="https://twitter.com/_BitcoinBinary_">Follow @_BitcoinBinary_</a> 
+	<li>Patronage by <a href="https://coinkite.com">Coinkite</a>
+</ul>
+</section>
+
 <section class="header">
 
-Complex problems, simple solutions... <i>less drama</i> | <a href="https://github.com/coinkite/bitcoinbinary.org">contribute here</a> | <a href="https://twitter.com/nvk">have questions? ask @nvk</a> | <a href="https://twitter.com/_BitcoinBinary_">Follow @_BitcoinBinary_</a>
-
-
 <pre>
-
 
 
 ██████  ██ ████████  ██████  ██████  ██ ███    ██ 
@@ -86,10 +97,11 @@ Complex problems, simple solutions... <i>less drama</i> | <a href="https://githu
                                                   
        
        
-       
 </pre>
+<i>Complex problems, simple solutions... <i>less fud</i> - BitcoinBinary.org is a repository of Reproducible Build Proofs for Bitcoin Projects</i>
 </section>
 
+<section class="content">
 <!--- Example:
 <a href="link to vendor release announcement">YYYY-MM-DD</a> | <a href="wallet site">wallet name</a>  | software version #.##.## <a href="src link">[src]</a> | SHA256 | <a href="wallet site">link to video</a> | notes | <a href="link to some public profile">builder name</a>
 --->
@@ -149,3 +161,4 @@ other distributor.</p>
 <ul class="log">
      <li> 2021-09-06 06:24 | 0.02499808 Bounty Paid to @achow101
      <li> 2021-09-02 09:25 | 0.025 BTC by <a href="https://coinkite.com">Coinkite</a>
+</section>
