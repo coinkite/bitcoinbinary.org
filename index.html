@@ -48,7 +48,8 @@ table {
 
 body{margin: 0px;font-family:sans-serif;width:100%;}
 .log {border: 1px solid #ddd;display:block;width:100%;list-style: none;margin-bottom:10px;}
-.log li{display:inline-block;width:99%;padding:2px 6px;}
+.log li, .faq li{display:inline-block;width:99%;padding:2px 6px;}
+.faq li b{margin-right:10px;}
 .log li:nth-child(even) {background: #eee;}
 .log li:hover{background:#ddd;}
 hr{margin:40px 0;}
@@ -125,8 +126,9 @@ i{font-style: italic;}
 
 <p class="cta"> Submit repro build proof<a href="https://github.com/coinkite/bitcoinbinary.org/pulls"> here.</a>
 <hr>
+
 <h2>FAQ</h2>
-<ul>
+<ul class="faq">
 <li><b>Who can submit?</b> Anyone. Ideally not the project maintainer, but even that might help others see the process on video to repro themselves. 
 <li><b>Can I summit the same version already proved?</b> Yes. A few proofs of the same are welcomed!
 <li><b>What are the specs for the video?</b>No audio, smallets resolution where the text still legible, terminal only.
@@ -136,7 +138,7 @@ i{font-style: italic;}
 <li><b>Why should people care?</b>Most users are not capable of building from source code themselves, but we can at least get them abled enough to check signatures and shasums. When reputable people who can tell everyone they were able to reproduce the project's build, others at least have a secondary source of validation.
 </ul>
 
-
+<hr>
 <h2>Definitions from reproducible-builds.org</h2>
 <b>When is a build reproducible?</b>
 <p>A build is <b>reproducible</b> if given the same source code, build environment
