@@ -21,7 +21,6 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	color: #9c9c9c;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -30,11 +29,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1.2;
-	background-color: #080808;
+	background-color: #ffffff;
 }
+
 ol, ul {
 	list-style: none;
-	background-color: #080808;
 }
 blockquote, q {
 	quotes: none;
@@ -54,10 +53,10 @@ body{margin: 0px;font-family:sans-serif;width:100%;}
 .faq {display:block;margin:10px auto;}
 .log li, .faq li{display:inline-block;width:99%;padding:2px 6px;}
 .faq li b{margin-right:10px;}
-.log li:nth-child(even) {background: #131313;}
-.log li:hover{background:#414141;}
+.log li:nth-child(even) {background: #eee;}
+.log li:hover{background:#ddd;}
 hr{margin:40px 0;}
-a {text-decoration:none;color:#f7931a;}
+a {text-decoration:none;}
 .header{text-align:center;}
 pre{font-size: 2em;font-family: monospace;}
 b{font-weight:bold;}
@@ -71,19 +70,109 @@ h2{font-size:1.2em;font-weight:bold;margin-bottom:16px;display:block;}
 i{font-style: italic;}
 .menu li{display:inline-block;padding:4px 0px;}
 .menu ul > li + li {margin-left: 10px;padding-left: 10px;border-left: 1px solid #ccc;}
+
+/* Dark mode */
+.dark-mode {
+	background-color: #080808;
+	color: #9c9c9c;
+}
+.dark-mode a {
+	color: f7931a;
+}
+.dark-mode .log li:nth-child(even) {
+	background: #131313;
+}
+.dark-mode .log li:hover {
+	background: #414141;
+}
+.dark-mode .menu ul {
+	background-color: #080808;
+}
+.dark-mode .menu li {
+	background-color: #080808;
+}
+
+/* The dark mode button switch - the box around the slider */
+.switch {
+  position: absolute;
+  display: inline-block;
+  margin-left: 10px;
+  width: 30px;
+  height: 17px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 </style>
+
 <section class="menu">
 <ul>
-	<li><a href="https://github.com/coinkite/bitcoinbinary.org">BitcoinBinary.org</a> 
-	<li>Contribute <a href="https://github.com/coinkite/bitcoinbinary.org">here</a> 
-	<li>Questions?<a href="https://twitter.com/nvk">Ask @nvk</a> 
-	<li>Follow <a href="https://twitter.com/_BitcoinBinary_">@_BitcoinBinary_</a> 
+	<li><a href="https://github.com/coinkite/bitcoinbinary.org">BitcoinBinary.org</a>
+	<li>Contribute <a href="https://github.com/coinkite/bitcoinbinary.org">here</a>
+	<li>Questions?<a href="https://twitter.com/nvk">Ask @nvk</a>
+	<li>Follow <a href="https://twitter.com/_BitcoinBinary_">@_BitcoinBinary_</a>
 	<li>Patronage by <a href="https://coinkite.com">Coinkite</a>
+	<li>Dark Mode
+		<label class="switch">
+			<input type="checkbox" onclick="darkMode()">
+			<span class="slider round"></span>
+		</label>
 </ul>
 </section>
 
 <section class="header">
-
 <pre>
 
 
@@ -101,7 +190,7 @@ i{font-style: italic;}
 ██████  ██ ██   ████ ██   ██ ██   ██    ██ .ORG  
                                                   
        
-       
+
 </pre>
 <i>Complex problems, simple solutions... <i>less fud</i> - BitcoinBinary.org is a repository of Reproducible Build Proofs for Bitcoin Projects</i>
 </section>
@@ -193,3 +282,10 @@ other distributor.</p>
      <li> 2021-09-06 06:24 | 0.02499808 Bounty Paid to @achow101
      <li> 2021-09-02 09:25 | 0.025 BTC by <a href="https://coinkite.com">Coinkite</a>
 </section>
+
+<script type="text/javascript">
+	function darkMode() {
+	   var element = document.body;
+	   element.classList.toggle("dark-mode");
+	}
+</script>
