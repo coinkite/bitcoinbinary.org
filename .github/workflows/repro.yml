@@ -1,4 +1,4 @@
-name: BTC Reproducible Builds
+name: Bitcoin Binaries Reproducible Builds
 on:
   push:
     paths-ignore:
