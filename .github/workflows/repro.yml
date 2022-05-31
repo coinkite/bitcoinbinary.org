@@ -125,7 +125,7 @@ jobs:
           VERSION=`perl -ne 'print "$1\n" if /^VERSION="?([^"]*)"?$/' artifacts.sh`
           # Only run if the project and version have not already been included
           if ! grep -q -i "${PROJECT}.*${VERSION}" ../index.html ; then
-            ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-video.webm &
+            ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-${VERSION}-video.webm &
             xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh"
             # wait for steps to run
             pkill -f ffmpeg
@@ -137,7 +137,7 @@ jobs:
         with:
           name: ${{ matrix.project }}
           path: |
-            ${{ matrix.project }}/${{ matrix.project }}-video.webm
+            ${{ matrix.project }}/${{ matrix.project }}*-video.webm
             ${{ matrix.project }}/${{ matrix.project }}-output.txt
 
   reproCommit:
@@ -164,8 +164,8 @@ jobs:
           # Check in each new video artifact
           for dir in `ls -d artifacts/*` ; do
             p=`echo ${dir} | cut -f 2 -d '/'`
-            mv artifacts/${p}/${p}-video.webm ${p}/${p}-video.webm ;
-            git add ${p}/${p}-video.webm ;
+            mv artifacts/${p}/${p}*-video.webm ${p}/ ;
+            git add ${p}/*-video.webm ;
           done
 
           git add index.html
