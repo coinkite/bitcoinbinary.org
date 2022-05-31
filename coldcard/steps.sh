@@ -18,7 +18,7 @@ git submodule update --init --depth 1
 perl -pi -e "s|/work/src|`pwd`|g" stm32/repro-build.sh
 perl -pi -e "s|/work/built|`pwd`/stm32|g" stm32/repro-build.sh
 
-#sh stm32/repro-build.sh ${VERSION} ${MK_NUM}
+sh stm32/repro-build.sh ${VERSION} ${MK_NUM}
 
 # Add delay for results to be printed and recorded
 sleep 10
