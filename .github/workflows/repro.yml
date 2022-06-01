@@ -6,8 +6,6 @@ on:
     # ignore them to prevent an infinite CI loop
     - '*/*.webm'
     - 'index.html'
-  schedule:
-    - cron: '0 0,8,16 * * *'
 jobs:
   reproBuild:
     runs-on: ubuntu-latest
