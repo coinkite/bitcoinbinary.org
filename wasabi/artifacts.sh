@@ -12,6 +12,6 @@ SHA256=`shasum -a 256 WalletWasabi/WalletWasabi.Gui/bin/Release/netcoreapp3.1/Wa
 ARTIFACT_BASEURL="https://github.com/${GITHUB_REPOSITORY}/raw"
 ARTIFACT_BRANCH=${GITHUB_REF_NAME}
 
-ENTRY_TO_APPEND="<li><a href='${REPO}/releases/${VERSION}'>${DATE}</a> | <a href='${URL}' class='project-name'>${PROJECT}</a>  | <a href='${REPO}/releases/tag/${VERSION}'>${VERSION}</a> | <a href='${CHECKSUM_SOURCE}'> factory ${SHA256} </a>| <a href='${ARTIFACT_BASEURL}/${ARTIFACT_BRANCH}/${PROJECT}/${PROJECT}-video.webm'>video proof</a> | no notes | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/${PROJECT}/artifacts.sh' class="bot">build bot</a></li>"
+ENTRY_TO_APPEND="<li><a href='${REPO}/releases/${VERSION}'>${DATE}</a> | <a href='${URL}' class='project-name'>${PROJECT}</a>  | <a href='${REPO}/releases/tag/${VERSION}'>${VERSION}</a> | <a href='${CHECKSUM_SOURCE}'> factory ${SHA256} </a>| <a href='${ARTIFACT_BASEURL}/${ARTIFACT_BRANCH}/${PROJECT}/${PROJECT}-${VERSION}-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/${PROJECT}/artifacts.sh' class="bot">build bot</a></li>"
 
 echo ${ENTRY_TO_APPEND}

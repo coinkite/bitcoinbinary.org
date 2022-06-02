@@ -1,7 +1,7 @@
 #!/bin/bash
 
-VERSION=5.0.3
-VERSION_STRING="2022-05-04T1252-v${VERSION}"
+VERSION=5.0.4
+VERSION_STRING="2022-05-27T1500-v${VERSION}"
 MK_NUM=4
 
 if [ ! -e firmware ] ; then

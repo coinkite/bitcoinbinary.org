@@ -18,7 +18,7 @@ jobs:
       matrix:
         # Working: coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green
         # WIP: trezor-firmware, bitbox02-firmware
-        project: [coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green]
+        project: [coldcard, coldcard-mk3, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green]
     steps:
       - name: Setup xvfb for video capture
         run: |
@@ -120,18 +120,22 @@ jobs:
         run: |
           REPO_ROOT_DIR=`pwd`
           cd ${PROJECT}
-          ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-video.webm &
-          xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh"
-          # wait for steps to run
-          pkill -f ffmpeg
-          ./artifacts.sh >> ${PROJECT}-output.txt
+          VERSION=`perl -ne 'print "$1\n" if /^VERSION="?([^"]*)"?$/' artifacts.sh`
+          # Only run if the project and version have not already been included
+          if ! grep -q -i "${PROJECT}.*${VERSION}" ../index.html ; then
+            ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-${VERSION}-video.webm &
+            xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh"
+            # wait for steps to run
+            pkill -f ffmpeg
+            ./artifacts.sh >> ${PROJECT}-output.txt
+          fi ;
 
       - name: Stage ${{ matrix.project }} artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.project }}
           path: |
-            ${{ matrix.project }}/${{ matrix.project }}-video.webm
+            ${{ matrix.project }}/${{ matrix.project }}*-video.webm
             ${{ matrix.project }}/${{ matrix.project }}-output.txt
 
   reproCommit:
@@ -158,8 +162,8 @@ jobs:
           # Check in each new video artifact
           for dir in `ls -d artifacts/*` ; do
             p=`echo ${dir} | cut -f 2 -d '/'`
-            mv artifacts/${p}/${p}-video.webm ${p}/${p}-video.webm ;
-            git add ${p}/${p}-video.webm ;
+            mv artifacts/${p}/${p}*-video.webm ${p}/ ;
+            git add ${p}/*-video.webm ;
           done
 
           git add index.html
