@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install ARM toolchain
-        if: ${{ matrix.project == 'coldcard' || ${{ matrix.project == 'coldcard-mk3' || matrix.project == 'trezor-firmware' || matrix.project == 'bitbox02-firmware' }}
+        if: ${{ matrix.project == 'coldcard' || matrix.project == 'coldcard-mk3' || matrix.project == 'trezor-firmware' || matrix.project == 'bitbox02-firmware' }}
         uses: carlosperate/arm-none-eabi-gcc-action@v1
         with:
           release: 'latest'
