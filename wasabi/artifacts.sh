@@ -2,7 +2,7 @@
 
 DATE=`date +%Y-%m-%d`
 URL="https://wasabiwallet.io/"
-VERSION="v1.1.13.1"
+VERSION="v2.0.1.2"
 REPO="https://github.com/zkSNACKs/WalletWasabi"
 CHECKSUM_SOURCE="https://github.com/zkSNACKs/WalletWasabi/releases/tag/${VERSION}"
 PROJECT="wasabi"
