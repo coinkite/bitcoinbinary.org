@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION_STRING="v0.14.1-beta"
+VERSION_STRING="v0.15.0-betaa"
 
 if [ ! -e lnd ] ; then
   # Checkout source and submodules
