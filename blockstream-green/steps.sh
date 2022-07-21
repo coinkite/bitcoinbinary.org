@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="release_3.8.2"
+VERSION="release_3.8.5"
 
 if [ ! -e green_android ] ; then
   # Checkout source and signature
