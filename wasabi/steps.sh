@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="v1.1.13.1"
+VERSION="v2.0.1.2"
 
 if [ ! -e WalletWasabi ] ; then
   # Checkout source and signature

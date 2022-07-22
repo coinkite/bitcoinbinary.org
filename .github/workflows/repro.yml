@@ -19,6 +19,7 @@ jobs:
         # Working: coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green
         # WIP: trezor-firmware, bitbox02-firmware
         project: [coldcard]
+        #project: [coldcard, coldcard-mk3, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green]
     steps:
       - name: Setup xvfb for video capture
         run: |
@@ -34,7 +35,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install ARM toolchain
-        if: ${{ matrix.project == 'coldcard' || matrix.project == 'trezor-firmware' || matrix.project == 'bitbox02-firmware' }}
+        if: ${{ matrix.project == 'coldcard' || matrix.project == 'coldcard-mk3' || matrix.project == 'trezor-firmware' || matrix.project == 'bitbox02-firmware' }}
         uses: carlosperate/arm-none-eabi-gcc-action@v1
         with:
           release: 'latest'
@@ -136,7 +137,7 @@ jobs:
         with:
           name: ${{ matrix.project }}
           path: |
-            ${{ matrix.project }}/${{ matrix.project }}-video.webm
+            ${{ matrix.project }}/${{ matrix.project }}*-video.webm
             ${{ matrix.project }}/${{ matrix.project }}-output.txt
 
   reproCommit:
@@ -163,8 +164,8 @@ jobs:
           # Check in each new video artifact
           for dir in `ls -d artifacts/*` ; do
             p=`echo ${dir} | cut -f 2 -d '/'`
-            mv artifacts/${p}/${p}-video.webm ${p}/${p}-video.webm ;
-            git add ${p}/${p}-video.webm ;
+            mv artifacts/${p}/${p}*-video.webm ${p}/ ;
+            git add ${p}/*-video.webm ;
           done
 
           git add index.html
