@@ -3,7 +3,7 @@
 find ./firmware -type f -name firmware*.bin >&2
 
 DATE=`date +%Y-%m-%d`
-VERSION=5.0.4
+VERSION=5.0.5
 VERSION_STRING="2022-07-20T1508-v${VERSION}"
 URL="https://coldcard.com"
 REPO="https://github.com/Coldcard/firmware"
