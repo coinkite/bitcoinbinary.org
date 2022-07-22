@@ -18,7 +18,7 @@ jobs:
       matrix:
         # Working: coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green
         # WIP: trezor-firmware, bitbox02-firmware
-        project: [coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green]
+        project: [coldcard]
     steps:
       - name: Setup xvfb for video capture
         run: |
@@ -120,11 +120,16 @@ jobs:
         run: |
           REPO_ROOT_DIR=`pwd`
           cd ${PROJECT}
-          ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-video.webm &
-          xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh"
-          # wait for steps to run
-          pkill -f ffmpeg
-          ./artifacts.sh >> ${PROJECT}-output.txt
+          VERSION=`perl -ne 'print "$1\n" if /^VERSION="?([^"]*)"?$/' artifacts.sh`
+          # Only run if the project and version have not already been included
+          if ! grep -q -i "${PROJECT}.*${VERSION}" ../index.html ; then
+            ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-${VERSION}-video.webm &
+            xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh 2>&1 | tee log.out"
+            # wait for steps to run
+            pkill -f ffmpeg
+            ./artifacts.sh >> ${PROJECT}-output.txt
+            cat log.out
+          fi ;
 
       - name: Stage ${{ matrix.project }} artifacts
         uses: actions/upload-artifact@v3
