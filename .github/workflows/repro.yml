@@ -18,8 +18,8 @@ jobs:
       matrix:
         # Working: coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green
         # WIP: trezor-firmware, bitbox02-firmware
-        project: [coldcard]
         #project: [coldcard, coldcard-mk3, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green]
+        project: [coldcard]
     steps:
       - name: Setup xvfb for video capture
         run: |
@@ -123,7 +123,7 @@ jobs:
           cd ${PROJECT}
           VERSION=`perl -ne 'print "$1\n" if /^VERSION="?([^"]*)"?$/' artifacts.sh`
           # Only run if the project and version have not already been included
-          if ! grep -q -i "${PROJECT}.*${VERSION}" ../index.html ; then
+          if ! grep -q -i "${PROJECT}.*${VERSION}.*build bot" ../index.html ; then
             ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-${VERSION}-video.webm &
             xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh 2>&1 | tee log.out"
             # wait for steps to run
