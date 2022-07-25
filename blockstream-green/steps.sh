@@ -5,7 +5,7 @@ eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e green_android ] ; then
   # Checkout source and signature
-  git clone -b ${VERSION} --progress --depth 1 https://github.com/Blockstream/green_android.git
+  git clone -b ${VERSION_STRING} --progress --depth 1 https://github.com/Blockstream/green_android.git
 fi
 
 cd green_android
