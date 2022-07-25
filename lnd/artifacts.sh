@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
-VERSION="v0.14.1-beta"
+VERSION="v0.15.0-beta"
 URL="https://lightning.network/"
 REPO="https://github.com/lightningnetwork/lnd"
 CHECKSUM_SOURCE="https://github.com/lightningnetwork/lnd/releases/download/${VERSION}/manifest-${VERSION}.txt"
