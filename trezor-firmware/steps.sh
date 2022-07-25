@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION_STRING="core/v2.5.1"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e trezor-firmware ] ; then
   # Checkout source and submodules

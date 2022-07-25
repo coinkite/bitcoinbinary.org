@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION="v0.5.6-beta"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e zap-android ] ; then
   # Checkout source and signature

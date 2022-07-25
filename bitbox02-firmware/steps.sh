@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION_STRING="firmware-btc-only/v9.11.0"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e bitbox02-firmware ] ; then
   # Checkout source and submodules

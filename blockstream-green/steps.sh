@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION="release_3.8.5"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e green_android ] ; then
   # Checkout source and signature

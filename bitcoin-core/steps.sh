@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION_STRING="v23.0"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e lnd ] ; then
   # Checkout source and submodules

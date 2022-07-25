@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION="2.4.27"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e wallet ] ; then
   # Checkout source and signature
