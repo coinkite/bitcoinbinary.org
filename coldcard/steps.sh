@@ -1,7 +1,8 @@
 #!/bin/bash
 
-VERSION=5.0.5
-VERSION_STRING="2022-07-20T1508-v${VERSION}"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
+
 MK_NUM=4
 
 if [ ! -e firmware ] ; then

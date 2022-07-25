@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION="v3.15.0.0"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e wallet-android ] ; then
   # Checkout source and signature

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION="v2.0.1.2"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e WalletWasabi ] ; then
   # Checkout source and signature

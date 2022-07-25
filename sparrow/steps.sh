@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION="1.6.5"
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
 
 if [ ! -e sparrow ] ; then
   # Checkout source and signature

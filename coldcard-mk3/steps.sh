@@ -1,9 +1,9 @@
 #!/bin/bash
 
+# Pull in version numbers from artifacts.sh
+eval "$(grep VERSION artifacts.sh)"
+
 BRANCH="v4-legacy"
-VERSION=4.1.5
-VERSION_STRING="2022-05-04T1258-v${VERSION}"
-MK_NUM=3
 
 if [ ! -e firmware ] ; then
   # Checkout source and submodules
