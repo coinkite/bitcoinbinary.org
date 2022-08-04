@@ -2,7 +2,7 @@
 
 DATE=`date +%Y-%m-%d`
 URL="https://sparrowwallet.com/"
-VERSION="1.6.5"
+VERSION="1.6.6"
 REPO="https://github.com/sparrowwallet/sparrow"
 CHECKSUM_SOURCE="https://github.com/sparrowwallet/sparrow/releases/download/${VERSION}/sparrow-${VERSION}-manifest.txt"
 PROJECT="sparrow"
