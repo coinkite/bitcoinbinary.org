@@ -154,23 +154,30 @@ jobs:
 
       - name: Commit updates
         run: |
-          # Append each new output line to the HTML table
-          for o in `ls artifacts/*/*output.txt` ; do
-            TEXT=`cat ${o}` ;
-            perl -pi -e "s+^<ul class=\"log\">$+<ul class=\"log\">\n     ${TEXT}+" index.html ;
-          done
+          PATTERN="artifacts/*/*output.txt"
 
-          # Check in each new video artifact
-          for dir in `ls -d artifacts/*` ; do
-            p=`echo ${dir} | cut -f 2 -d '/'`
-            mv artifacts/${p}/${p}*-video.webm ${p}/ ;
-            git add ${p}/*-video.webm ;
-          done
+          # Run only if any artifacts were found
+          if ls $PATTERN 1> /dev/null 2>&1; then
+              # Append each new output line to the HTML table
+              for o in `ls artifacts/*/*output.txt` ; do
+                TEXT=`cat ${o}` ;
+                perl -pi -e "s+^<ul class=\"log\">$+<ul class=\"log\">\n     ${TEXT}+" index.html ;
+              done
 
-          git add index.html
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          git commit -m 'Add latest build artifacts'
+              # Check in each new video artifact
+              for dir in `ls -d artifacts/*` ; do
+                p=`echo ${dir} | cut -f 2 -d '/'`
+                mv artifacts/${p}/${p}*-video.webm ${p}/ ;
+                git add ${p}/*-video.webm ;
+              done
+
+              git add index.html
+              git config --local user.email 'action@github.com'
+              git config --local user.name 'GitHub Action'
+              git commit -m 'Add latest build artifacts'
+          else
+              echo "No new artifacts to commit"
+          fi
 
       - name: Push updates
         uses: ad-m/github-push-action@master
