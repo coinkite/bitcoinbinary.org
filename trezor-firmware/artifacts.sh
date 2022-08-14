@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="@Trezor"
 VERSION="2.5.1"
 VERSION_STRING="core/v${VERSION}"
 URL="https://trezor.io/"

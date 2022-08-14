@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="Mycelium Wallet"
 URL="https://wallet.mycelium.com/"
 VERSION="v3.15.0.0"
 REPO="https://github.com/mycelium-com/wallet-android"

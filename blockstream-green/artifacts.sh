@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="@Blockstream Green"
 URL="https://blockstream.com/"
 VERSION="3.8.5"
 VERSION_STRING="release_${VERSION}"

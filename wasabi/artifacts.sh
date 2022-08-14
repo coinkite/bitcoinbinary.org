@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="@wasabiwallet"
 URL="https://wasabiwallet.io/"
 VERSION="v2.0.1.2"
 REPO="https://github.com/zkSNACKs/WalletWasabi"
