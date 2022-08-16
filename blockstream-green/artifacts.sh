@@ -3,7 +3,7 @@
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="@Blockstream Green"
 URL="https://blockstream.com/"
-VERSION="3.8.5"
+VERSION="3.8.6"
 VERSION_STRING="release_${VERSION}"
 REPO="https://github.com/Blockstream/green_android"
 CHECKSUM_SOURCE="https://github.com/Blockstream/green_android/releases/tag/${VERSION_STRING}"
