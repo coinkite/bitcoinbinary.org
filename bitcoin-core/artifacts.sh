@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="Bitcoin Core"
 VERSION="v23.0"
 URL="https://bitcoin.org/"
 REPO="https://github.com/bitcoin/bitcoin"

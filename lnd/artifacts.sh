@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="LND"
 VERSION="v0.15.0-beta"
 URL="https://lightning.network/"
 REPO="https://github.com/lightningnetwork/lnd"

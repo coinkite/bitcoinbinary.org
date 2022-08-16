@@ -127,8 +127,25 @@ jobs:
             xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh 2>&1 | tee log.out"
             # wait for steps to run
             pkill -f ffmpeg
+
+            # Convert video to mp4 for Twitter upload
+            ffmpeg -nostats -y -i ${PROJECT}-${VERSION}-video.webm -movflags faststart -pix_fmt yuv420p ${PROJECT}-${VERSION}-video.mp4
+            ORIGINAL_DURATION=$(ffprobe -i ${PROJECT}-${VERSION}-video.mp4 -show_entries format=duration -v quiet -of csv="p=0")
+          
+            if [[ $ORIGINAL_DURATION > 140 ]]; then
+                mv ${PROJECT}-${VERSION}-video.mp4 ${PROJECT}-${VERSION}-video-original.mp4
+                echo "Original video is longer than 140 seconds, so we will speed it up for Twitter."
+                ffmpeg -nostats -y -i ${PROJECT}-${VERSION}-video-original.mp4 -movflags faststart -pix_fmt yuv420p -filter:v "setpts=(139/${ORIGINAL_DURATION})*PTS" ${PROJECT}-${VERSION}-video.mp4
+            fi
+
             ./artifacts.sh >> ${PROJECT}-output.txt
             cat log.out
+
+            # Create a txt file artifact that forms part of the tweet composed in reproTweet step.
+            TWITTER_NAME=`perl -ne 'print "$1\n" if /^TWITTER_NAME="?([^"]*)"?$/' artifacts.sh`
+            if [ ! -z "$TWITTER_NAME" ]; then
+                echo "${TWITTER_NAME} ${VERSION}" > "${PROJECT}-${VERSION}-tweet-entry.txt"
+            fi
           fi ;
 
       - name: Stage ${{ matrix.project }} artifacts
@@ -137,7 +154,9 @@ jobs:
           name: ${{ matrix.project }}
           path: |
             ${{ matrix.project }}/${{ matrix.project }}*-video.webm
+            ${{ matrix.project }}/${{ matrix.project }}*-video.mp4
             ${{ matrix.project }}/${{ matrix.project }}-output.txt
+            ${{ matrix.project }}/${{ matrix.project }}*-tweet-entry.txt
 
   reproCommit:
     needs:
@@ -154,25 +173,87 @@ jobs:
 
       - name: Commit updates
         run: |
-          # Append each new output line to the HTML table
-          for o in `ls artifacts/*/*output.txt` ; do
-            TEXT=`cat ${o}` ;
-            perl -pi -e "s+^<ul class=\"log\">$+<ul class=\"log\">\n     ${TEXT}+" index.html ;
-          done
+          PATTERN="artifacts/*/*output.txt"
 
-          # Check in each new video artifact
-          for dir in `ls -d artifacts/*` ; do
-            p=`echo ${dir} | cut -f 2 -d '/'`
-            mv artifacts/${p}/${p}*-video.webm ${p}/ ;
-            git add ${p}/*-video.webm ;
-          done
+          # Run only if any artifacts were found
+          if ls $PATTERN 1> /dev/null 2>&1; then
+              # Append each new output line to the HTML table
+              for o in `ls artifacts/*/*output.txt` ; do
+                TEXT=`cat ${o}` ;
+                perl -pi -e "s+^<ul class=\"log\">$+<ul class=\"log\">\n     ${TEXT}+" index.html ;
+              done
 
-          git add index.html
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          git commit -m 'Add latest build artifacts'
+              # Check in each new video artifact
+              for dir in `ls -d artifacts/*` ; do
+                p=`echo ${dir} | cut -f 2 -d '/'`
+                mv artifacts/${p}/${p}*-video.webm ${p}/ ;
+                git add ${p}/*-video.webm ;
+              done
+
+              git add index.html
+              git config --local user.email 'action@github.com'
+              git config --local user.name 'GitHub Action'
+              git commit -m 'Add latest build artifacts'
+          else
+              echo "No new artifacts to commit"
+          fi
 
       - name: Push updates
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  reproTweet:
+    needs:
+      - reproCommit
+    runs-on: ubuntu-latest
+    env:
+      TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+      TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+      TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+      TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - name: Gather artifacts from jobs
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Tweet about new builds
+        working-directory: twitter_bot
+        run: |
+          PATTERN="../artifacts/*/*tweet-entry.txt"
+
+          if ls $PATTERN 1> /dev/null 2>&1; then
+              pip install -q -r requirements.txt
+
+              for t in `ls $PATTERN` ; do
+                PROJECT=$(echo "$t" | sed -e 's/..\/artifacts\///g' -e 's/\/.*//g')
+                VERSION=$(echo "$t" | sed -e 's/..\/artifacts\/[a-zA-Z]*\/[a-zA-z]*-//g' -e 's/.*\///g' -e 's/-tweet-entry.txt//g')
+
+                MP4_VIDEO_FILENAME="${t/tweet-entry.txt/video.mp4}"
+                WEBM_VIDEO_URL="https://github.com/${GITHUB_REPOSITORY}/raw/${GITHUB_REF_NAME}/${PROJECT}/${PROJECT}-${VERSION}-video.webm"
+                
+                printf "New successful build on bitcoinbinary.org!\n\n" > tweet.txt
+                printf "`cat ${t}`\n\n" >> tweet.txt
+                printf "Original video proof: $WEBM_VIDEO_URL\n" >> tweet.txt
+
+                echo
+                echo "Tweeting the following:"
+                echo "---------------------------------"
+                cat tweet.txt
+                echo "---------------------------------"
+                echo
+
+                python send_tweet.py tweet.txt $MP4_VIDEO_FILENAME $WEBM_VIDEO_URL
+              done
+          else
+              echo "No new successful builds to tweet (or TWITTER_NAME not set in artifacts.sh)."
+          fi

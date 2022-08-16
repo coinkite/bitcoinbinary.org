@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="@SparrowWallet"
 URL="https://sparrowwallet.com/"
 VERSION="1.6.6"
 REPO="https://github.com/sparrowwallet/sparrow"

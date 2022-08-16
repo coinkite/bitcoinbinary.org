@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="@ln_zap"
 URL="http://zaphq.io/"
 VERSION="0.5.6-beta"
 VERSION_STRING="v${VERSION}"

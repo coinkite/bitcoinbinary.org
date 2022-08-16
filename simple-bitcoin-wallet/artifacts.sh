@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="@SimpleBtcWallet"
 URL="https://sbw.app/"
 VERSION="2.4.27"
 REPO="https://github.com/btcontract/wallet"

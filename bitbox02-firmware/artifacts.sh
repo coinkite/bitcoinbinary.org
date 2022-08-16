@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=`date +%Y-%m-%d`
+TWITTER_NAME="BitBox02"
 URL="https://shiftcrypto.ch/bitbox02/"
 VERSION="firmware-btc-only/v9.11.0"
 REPO="https://github.com/digitalbitbox/bitbox02-firmware"
