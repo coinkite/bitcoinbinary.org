@@ -131,7 +131,9 @@ jobs:
             # Convert video to mp4 for Twitter upload
             ffmpeg -nostats -y -i ${PROJECT}-${VERSION}-video.webm -movflags faststart -pix_fmt yuv420p ${PROJECT}-${VERSION}-video.mp4
             ORIGINAL_DURATION=$(ffprobe -i ${PROJECT}-${VERSION}-video.mp4 -show_entries format=duration -v quiet -of csv="p=0")
-          
+
+            echo "Duration of video: ${ORIGINAL_DURATION}"
+
             if [[ $ORIGINAL_DURATION > 140 ]]; then
                 mv ${PROJECT}-${VERSION}-video.mp4 ${PROJECT}-${VERSION}-video-original.mp4
                 echo "Original video is longer than 140 seconds, so we will speed it up for Twitter."
