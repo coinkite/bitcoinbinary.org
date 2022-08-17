@@ -134,8 +134,6 @@ jobs:
             # Convert to integer format, so bash can do arithmetic
             ORIGINAL_DURATION=$(echo $ORIGINAL_DURATION | sed -e 's/\.[0-9]*//')
 
-            echo "Duration of video: ${ORIGINAL_DURATION}"
-
             if (( $ORIGINAL_DURATION > 140 )); then
                 mv ${PROJECT}-${VERSION}-video.mp4 ${PROJECT}-${VERSION}-video-original.mp4
                 echo "Original video is longer than 140 seconds, so we will speed it up for Twitter."
