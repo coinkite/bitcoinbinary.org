@@ -3,7 +3,7 @@
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="@wasabiwallet"
 URL="https://wasabiwallet.io/"
-VERSION="v2.0.1.2"
+VERSION="v2.0.1.4"
 REPO="https://github.com/zkSNACKs/WalletWasabi"
 CHECKSUM_SOURCE="https://github.com/zkSNACKs/WalletWasabi/releases/tag/${VERSION}"
 PROJECT="wasabi"
