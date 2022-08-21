@@ -248,7 +248,7 @@ jobs:
 
               for t in `ls $PATTERN` ; do
                 PROJECT=$(echo "$t" | sed -e 's/..\/artifacts\///g' -e 's/\/.*//g')
-                VERSION=$(echo "$t" | sed -e 's/..\/artifacts\/[a-zA-Z]*\/[a-zA-z]*-//g' -e 's/.*\///g' -e 's/-tweet-entry.txt//g')
+                VERSION=$(perl -ne 'print "$1\n" if /^VERSION="?([^"]*)"?$/' "../${PROJECT}/artifacts.sh")
 
                 MP4_VIDEO_FILENAME="${t/tweet-entry.txt/video.mp4}"
                 WEBM_VIDEO_URL="https://github.com/${GITHUB_REPOSITORY}/raw/${GITHUB_REF_NAME}/${PROJECT}/${PROJECT}-${VERSION}-video.webm"
