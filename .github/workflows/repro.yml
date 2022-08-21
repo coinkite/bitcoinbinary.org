@@ -114,6 +114,11 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
       - name: Run ${{ matrix.project }} build
         env:
           PROJECT: ${{ matrix.project }}
@@ -123,12 +128,17 @@ jobs:
           VERSION=`perl -ne 'print "$1\n" if /^VERSION="?([^"]*)"?$/' artifacts.sh`
           # Only run if the project and version have not already been included
           if ! grep -q -i "${PROJECT}.*${VERSION}.*build bot" ../index.html ; then
-            ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-${VERSION}-video.webm &
+            ffmpeg -nostats -y -video_size $RESOLUTION -framerate ${FRAMERATE} -f x11grab -i $DISPLAY ${PROJECT}-${VERSION}-video-original.webm &
             xterm -display $DISPLAY -e "cd ${REPO_ROOT_DIR}/${PROJECT} && ./steps.sh 2>&1 | tee log.out"
             # wait for steps to run
             pkill -f ffmpeg
 
-            # Convert video to mp4 for Twitter upload
+            # Speed up video by shortening sections where terminal is not moving (keep 1 second).
+            python ../helper_scripts/speedup_video.py -i ${PROJECT}-${VERSION}-video-original.webm -o ${PROJECT}-${VERSION}-video.webm -t 1 -k 1
+
+            # Convert video to mp4 for Twitter upload.
+            # Also check the duration - might need to speed up further if still too long for Twitter.
+            # Duration check doesn't seem to work on .webm file (returns N/A), hence converting the full length first.
             ffmpeg -nostats -y -i ${PROJECT}-${VERSION}-video.webm -movflags faststart -pix_fmt yuv420p ${PROJECT}-${VERSION}-video.mp4
             ORIGINAL_DURATION=$(ffprobe -i ${PROJECT}-${VERSION}-video.mp4 -show_entries format=duration -v quiet -of csv="p=0")
             # Convert to integer format, so bash can do arithmetic
@@ -238,7 +248,7 @@ jobs:
 
               for t in `ls $PATTERN` ; do
                 PROJECT=$(echo "$t" | sed -e 's/..\/artifacts\///g' -e 's/\/.*//g')
-                VERSION=$(echo "$t" | sed -e 's/..\/artifacts\/[a-zA-Z]*\/[a-zA-z]*-//g' -e 's/.*\///g' -e 's/-tweet-entry.txt//g')
+                VERSION=$(perl -ne 'print "$1\n" if /^VERSION="?([^"]*)"?$/' "../${PROJECT}/artifacts.sh")
 
                 MP4_VIDEO_FILENAME="${t/tweet-entry.txt/video.mp4}"
                 WEBM_VIDEO_URL="https://github.com/${GITHUB_REPOSITORY}/raw/${GITHUB_REF_NAME}/${PROJECT}/${PROJECT}-${VERSION}-video.webm"
