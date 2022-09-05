@@ -18,7 +18,7 @@ jobs:
       matrix:
         # Working: coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green
         # WIP: trezor-firmware, bitbox02-firmware
-        project: [coldcard, coldcard-mk3, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green, fulcrum]
+        project: [coldcard, coldcard-mk3, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green, fulcrum, electrs]
     steps:
       - name: Setup xvfb for video capture
         run: |
@@ -82,6 +82,12 @@ jobs:
         if: ${{ matrix.project == 'bitcoin-core' }}
         run: |
           sudo apt install -y libboost-dev libevent-dev build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
+
+      - name: Setup deps for electrs
+        if: ${{ matrix.project == 'electrs' }}
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
 
       - name: Setup deps for Trezor (1/2)
         if: ${{ matrix.project == 'trezor-firmware' }}
