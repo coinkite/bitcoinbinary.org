@@ -4,7 +4,7 @@ find ./firmware -type f -name firmware*.bin >&2
 
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="@COLDCARDwallet Mk4"
-VERSION=5.0.6
+VERSION=5.0.7
 VERSION_STRING="2022-07-29T1817-v${VERSION}"
 URL="https://coldcard.com"
 REPO="https://github.com/Coldcard/firmware"
