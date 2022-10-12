@@ -117,7 +117,10 @@ def get_frozen_segments(input, sensitivity, threshold):
     # Convert frozen segments into a list of tuples of the form (start, end).
     for i in range(0, len(matching_lines) - 1, 2):
         start = float(matching_lines[i].split("=")[1])
-        end = float(matching_lines[i + 1].split("=")[1])
+        end_str = matching_lines[i + 1].split("=")[1]
+        if end_str == "end":
+            end_str = "9999999"  # artificial to the end
+        end = float(end_str)
         frozen_segments.append((start, end))
 
     return frozen_segments
