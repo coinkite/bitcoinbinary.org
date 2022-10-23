@@ -18,7 +18,7 @@ jobs:
       matrix:
         # Working: coldcard, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green
         # WIP: trezor-firmware, bitbox02-firmware
-        project: [coldcard, coldcard-mk3, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green, fulcrum, electrs, cln]
+        project: [coldcard, coldcard-mk3, lnd, bitcoin-core, mycelium-android, zap-android, simple-bitcoin-wallet, wasabi, sparrow, blockstream-green, fulcrum, electrs, cln, poncho]
     steps:
       - name: Setup xvfb for video capture
         run: |
@@ -39,8 +39,8 @@ jobs:
         with:
           release: 'latest'
 
-      - name: Setup Java 17 (for Sparrow)
-        if: ${{ matrix.project == 'sparrow' }}
+      - name: Setup Java 17 (for Sparrow and Poncho)
+        if: ${{ matrix.project == 'sparrow' || matrix.project == 'poncho' }}
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -134,6 +134,12 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+
+      - name: Setup deps for Poncho
+        if: ${{ matrix.project == 'poncho' }}
+        run: |
+          sudo apt install -y libuv1-dev
+          git clone https://github.com/bitcoin-core/secp256k1 && cd secp256k1 && ./autogen.sh && ./configure --enable-module-schnorrsig --enable-module-recovery && make && sudo make install
 
       - name: Run ${{ matrix.project }} build
         env:
