@@ -32,6 +32,8 @@ jobs:
 
       - name: Checkout source
         uses: actions/checkout@v2
+        with:
+          lfs: true
 
       - name: Install ARM toolchain
         if: ${{ matrix.project == 'coldcard' || matrix.project == 'coldcard-mk3' || matrix.project == 'trezor-firmware' || matrix.project == 'bitbox02-firmware' }}
