@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATE=`date +%Y-%m-%d`
+DATE=$(date +%Y-%m-%d)
 TWITTER_NAME="BitBox02"
 URL="https://shiftcrypto.ch/bitbox02/"
 VERSION_STRING="v9.12.0"
