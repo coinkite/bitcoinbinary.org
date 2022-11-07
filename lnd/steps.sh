@@ -2,13 +2,14 @@
 
 # Pull in version numbers from artifacts.sh
 eval "$(grep VERSION artifacts.sh)"
+# Pull in GOPATH
+eval "$(grep GOPATH artifacts.sh)"
 
 if [ ! -e lnd ]; then
 	# Checkout source and submodules
 	git clone --progress https://github.com/lightningnetwork/lnd
 fi
 
-export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
 cd lnd
