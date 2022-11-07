@@ -1,18 +1,18 @@
 #!/bin/bash
 
-DATE=`date +%Y-%m-%d`
+DATE=$(date +%Y-%m-%d)
 TWITTER_NAME="BitBox02"
 URL="https://shiftcrypto.ch/bitbox02/"
-VERSION="firmware-btc-only/v9.12.0"
+VERSION_STRING="firmware-btc-only/v9.12.0"
 REPO="https://github.com/digitalbitbox/bitbox02-firmware"
-CHECKSUM_SOURCE="https://github.com/digitalbitbox/bitbox02-firmware/releases/tag/${VERSION}"
+CHECKSUM_SOURCE="https://github.com/digitalbitbox/bitbox02-firmware/releases/tag/${VERSION_STRING}"
 PROJECT="bitbox02-firmware"
-SHA256=`shasum -a 256 firmware/stm32/firmware-signed.bin | cut -f 1 -d ' '`
+SHA256=$(shasum -a 256 firmware/stm32/firmware-signed.bin | cut -f 1 -d ' ')
 
 # Note GITHUB_ environment variables are populated by Github Actions
 ARTIFACT_BASEURL="https://github.com/${GITHUB_REPOSITORY}/raw"
 ARTIFACT_BRANCH=${GITHUB_REF_NAME}
 
-ENTRY_TO_APPEND="<li><a href='${REPO}/releases/tag/${VERSION}'>${DATE}</a> | <a href='${URL}' class='project-name'>${PROJECT}</a>  | <a href='${REPO}/releases/tag/${VERSION}'>${VERSION}</a> | <a href='${CHECKSUM_SOURCE}'> factory ${SHA256} </a>| <a href='${ARTIFACT_BASEURL}/${ARTIFACT_BRANCH}/${PROJECT}/${PROJECT}-${VERSION}-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/${PROJECT}/artifacts.sh' class="bot">build bot</a></li>"
+ENTRY_TO_APPEND="<li><a href='${REPO}/releases/tag/${VERSION_STRING}'>${DATE}</a> | <a href='${URL}' class='project-name'>${PROJECT}</a>  | <a href='${REPO}/releases/tag/${VERSION_STRING}'>${VERSION_STRING}</a> | <a href='${CHECKSUM_SOURCE}'> factory ${SHA256} </a>| <a href='${ARTIFACT_BASEURL}/${ARTIFACT_BRANCH}/${PROJECT}/${PROJECT}-${VERSION_STRING}-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/${PROJECT}/artifacts.sh' class="bot">build bot</a></li>"
 
 echo ${ENTRY_TO_APPEND}
