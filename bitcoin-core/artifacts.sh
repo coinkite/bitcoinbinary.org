@@ -5,7 +5,8 @@ TWITTER_NAME="Bitcoin Core"
 VERSION="v24.0.1"
 URL="https://bitcoin.org/"
 REPO="https://github.com/bitcoin/bitcoin"
-CHECKSUM_SOURCE="https://bitcoincore.org/bin/bitcoin-core-${VERSION}/SHA256SUMS"
+#We strip the v from VERSION for the CHECKSUM_SOURCE
+CHECKSUM_SOURCE="https://bitcoincore.org/bin/bitcoin-core-${VERSION//v}/SHA256SUMS"
 PROJECT="bitcoin-core"
 SHA256=`shasum -a 256 bitcoin/src/bitcoind | cut -f 1 -d ' '`
 
