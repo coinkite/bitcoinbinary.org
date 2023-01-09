@@ -2,7 +2,7 @@
 
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="Bitcoin Core"
-VERSION="v23.0"
+VERSION="v24.0.1"
 URL="https://bitcoin.org/"
 REPO="https://github.com/bitcoin/bitcoin"
 CHECKSUM_SOURCE="https://bitcoincore.org/bin/bitcoin-core-${VERSION}/SHA256SUMS"
