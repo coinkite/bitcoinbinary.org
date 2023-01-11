@@ -2,7 +2,7 @@
 
 DATE=$(date +%Y-%m-%d)
 TWITTER_NAME="@Core_LN"
-VERSION="0.12.0"
+VERSION="22.11.1"
 VERSION_STRING="v${VERSION}"
 REPO="https://github.com/ElementsProject/lightning"
 CHECKSUM_SOURCE="https://github.com/ElementsProject/lightning/releases/download/${VERSION_STRING}/SHA256SUMS"
