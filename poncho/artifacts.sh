@@ -3,7 +3,7 @@
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="poncho"
 URL="https://github.com/nbd-wtf/poncho"
-VERSION="v0.3.0"
+VERSION="v0.4.1"
 REPO="https://github.com/nbd-wtf/poncho"
 CHECKSUM_SOURCE="https://github.com/nbd-wtf/poncho/releases/tag/${VERSION}"
 PROJECT="poncho"
