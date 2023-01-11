@@ -3,7 +3,7 @@
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="@SparrowWallet"
 URL="https://sparrowwallet.com/"
-VERSION="1.6.6"
+VERSION="1.7.1"
 REPO="https://github.com/sparrowwallet/sparrow"
 CHECKSUM_SOURCE="https://github.com/sparrowwallet/sparrow/releases/download/${VERSION}/sparrow-${VERSION}-manifest.txt"
 PROJECT="sparrow"
