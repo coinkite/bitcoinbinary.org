@@ -2,7 +2,7 @@
 
 DATE=$(date +%Y-%m-%d)
 TWITTER_NAME="LND"
-VERSION="v0.15.4-beta"
+VERSION="v0.15.5-beta"
 URL="https://lightning.network/"
 REPO="https://github.com/lightningnetwork/lnd"
 CHECKSUM_SOURCE="https://github.com/lightningnetwork/lnd/releases/download/${VERSION}/manifest-${VERSION}.txt"
