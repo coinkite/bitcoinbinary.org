@@ -2,7 +2,7 @@
 
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="@Trezor"
-VERSION="2.5.1"
+VERSION="2.5.3"
 VERSION_STRING="core/v${VERSION}"
 URL="https://trezor.io/"
 REPO="https://github.com/trezor/trezor-firmware"
