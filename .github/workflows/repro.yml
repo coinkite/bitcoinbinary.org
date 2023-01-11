@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: Setup xvfb for video capture
         run: |
+          sudo apt update -y
           sudo apt install -y xvfb libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0 xterm xfonts-base
           # start xvfb in the background
           sudo /usr/bin/Xvfb $DISPLAY -screen 0 "${RESOLUTION}x24" &
