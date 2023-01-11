@@ -3,7 +3,7 @@
 DATE=$(date +%Y-%m-%d)
 TWITTER_NAME="electrs"
 URL="https://github.com/romanz/electrs"
-VERSION="0.9.9"
+VERSION="0.9.11"
 VERSION_STRING="v${VERSION}"
 REPO="https://github.com/romanz/electrs"
 CHECKSUM_SOURCE="https://github.com/romanz/electrs/releases/tag/${VERSION_STRING}"
