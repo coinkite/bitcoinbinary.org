@@ -3,7 +3,7 @@
 DATE=`date +%Y-%m-%d`
 TWITTER_NAME="Mycelium Wallet"
 URL="https://wallet.mycelium.com/"
-VERSION="v3.15.0.0"
+VERSION="v3.16.0.15"
 REPO="https://github.com/mycelium-com/wallet-android"
 CHECKSUM_SOURCE="https://github.com/mycelium-com/wallet-android/releases/tag/${VERSION}"
 PROJECT="mycelium-android"
