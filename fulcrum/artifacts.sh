@@ -2,7 +2,7 @@
 
 DATE=$(date +%Y-%m-%d)
 TWITTER_NAME="Fulcrum"
-VERSION="1.8.2"
+VERSION="1.9.0"
 VERSION_STRING="v${VERSION}"
 REPO="https://github.com/cculianu/Fulcrum"
 CHECKSUM_SOURCE="https://github.com/cculianu/Fulcrum/releases/tag/${VERSION_STRING}"
