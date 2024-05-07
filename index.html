@@ -51,9 +51,20 @@ table {
 }
 
 body{margin: 0px;font-family:sans-serif;width:100%;}
-.log {border: 1px solid #ddd;display:block;width:100%;list-style: none;margin-bottom:10px;}
+.log {
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 10px;
+}
 .faq {display:block;margin:10px auto;}
-.log li, .faq li{display:inline-block;width:99%;padding:2px 6px;}
+.log li{
+    display: inline-block;
+    padding: 8px 8px;
+}
+.faq li{display:inline-block;padding:2px 6px;}
 .faq li b{margin-right:10px;}
 .log li:nth-child(even) {background: #eee;}
 .log li:hover{background:#ddd;}
