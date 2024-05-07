@@ -24,6 +24,10 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+h2 {
+    font-size: 28px !important;
+    font-family: monospace;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -51,35 +55,70 @@ table {
 }
 
 body{margin: 0px;font-family:sans-serif;width:100%;}
+.hero, b, h2 {
+    color: #292524;
+}
+p, i, .text-secondary, li {
+    color: #78716c;
+}
 .log {
-    border: 1px solid #ddd;
+    border: 4px solid #f5f5f4;
     display: flex;
     flex-direction: column;
     width: 100%;
     list-style: none;
     margin-bottom: 10px;
+    padding: 3px;
 }
 .faq {display:block;margin:10px auto;}
 .log li{
     display: inline-block;
     padding: 8px 8px;
+    font-family: monospace;
 }
-.faq li{display:inline-block;padding:2px 6px;}
-.faq li b{margin-right:10px;}
-.log li:nth-child(even) {background: #eee;}
-.log li:hover{background:#ddd;}
-hr{margin:40px 0;}
+.faq li {
+    display: block;
+    padding: 6px 6px;
+    color: #78716c;
+}
+.faq li b {
+    margin-right:10px;
+}
+.log li:nth-child(even) {background: #f5f5f4;}
+a {
+    color: #ea580c;
+}
+.log li:hover{background: #e7e5e4;}
+.main-divider {
+    border-color: #ea580c;
+    border-width: 4px;
+}
+hr {
+    margin: 40px 0;
+    border-style: solid;
+    border-color: #ea580c;
+    border-width: 1px;
+}
 a {text-decoration:none;}
 .header{text-align:center;}
 pre{font-size: 2em;font-family: monospace;}
 b{font-weight:bold;}
 p{margin-bottom:10px;}
 h1{font-size:2em;font-weight:bold;margin-bottom:20px;display:block;}
-h2{font-size:1.2em;font-weight:bold;margin-bottom:16px;display:block;}
+h2{font-size:1.2em;font-weight:bold;margin-bottom:16px;display:block;margin-top:32px}
 .project-name, .cta{font-weight:bold;text-transform: uppercase;}
 .menu{display:block;top:0;width:100%;background:#eee;padding:0px 0px;text-align:center;margin-bottom:40px;}
 .header{width:100%;max-width:1180px;text-align:center;margin: 0px auto;display:block;}
-.content{width:100%;max-width:1180px;text-align:left;margin: 0px auto;display:block;}
+
+.content{
+  width:100%;
+  max-width:1180px;
+  text-align:left;
+  margin: 0px auto;
+  display:block;
+  padding-bottom: 60px;
+}
+
 i{font-style: italic;}
 .menu li{display:inline-block;padding:4px 0px;}
 .menu ul > li + li {margin-left: 10px;padding-left: 10px;border-left: 1px solid #ccc;}
@@ -89,20 +128,31 @@ i{font-style: italic;}
 	background-color: #080808;
 	color: #9c9c9c;
 }
+.dark-mode .hero, .dark-mode b, .dark-mode h2 {
+    color: #f9fafb;
+}
 .dark-mode a {
 	color: f7931a;
 }
+.dark-mode .log {
+    border-color: #262626;
+}
 .dark-mode .log li:nth-child(even) {
-	background: #131313;
+	background: #262626;
 }
 .dark-mode .log li:hover {
-	background: #414141;
+	background: #525252;
 }
 .dark-mode .menu ul {
-	background-color: #080808;
+	background-color: #262626;
 }
-.dark-mode .menu li {
-	background-color: #080808;
+.dark-mode .menu ul > li + li {border-left: 1px solid #44403c;}
+.dark-mode .bot{
+    color: #fb923c;
+    background: #7c2d12;
+    border: 1px solid #fb923c;
+    border-radius: 5px;
+    margin-top: -4px;
 }
 
 /* The dark mode button switch - the box around the slider */
@@ -203,11 +253,12 @@ input:checked + .slider:before {
 			<input type="checkbox" onclick="darkMode()">
 			<span class="slider round"></span>
 		</label>
+	</li>
 </ul>
 </section>
 
 <section class="header">
-<pre>
+<pre class="hero">
 
 
 ██████  ██ ████████  ██████  ██████  ██ ███    ██
@@ -226,7 +277,7 @@ input:checked + .slider:before {
        
 
 </pre>
-<i>Complex problems, simple solutions... <i>less fud</i> - BitcoinBinary.org is a repository of Reproducible Build Proofs for Bitcoin Projects</i>
+<i class="text-secondary">Complex problems, simple solutions... <i>less fud</i> - BitcoinBinary.org is a repository of Reproducible Build Proofs for Bitcoin Projects</i>
 </section>
 
 
@@ -236,7 +287,7 @@ input:checked + .slider:before {
 <!--- Example:
 <a href="link to vendor release announcement">YYYY-MM-DD</a> | <a href="wallet site">wallet name</a>  | software version #.##.## <a href="src link">[src]</a> | SHA256 | <a href="wallet site">link to video</a> | notes | <a href="link to some public profile">builder name</a>
 --->
-<hr>
+<hr class="main-divider">
 
 <h2>Binary Log:</h2>
 <ul class="log">
@@ -406,13 +457,13 @@ input:checked + .slider:before {
 <li><b>What's SHASUM?</b> TL;DR a summary digest that you can use to compare the bytes to make sure they match. More info <a href="https://www.commandlinux.com/man-page/man1/shasum.1.html">here</a>.
 <li><b>Who maintains this site?</b>At the moment @nvk who hopes to have more maintainers.<i>__looking at you__</i> <a href="https://github.com/coinkite/bitcoinbinary.org"> come help!</a>
 <li><b>Why should people care?</b>Most users are not capable of building from source code themselves, but we can at least get them able enough to check signatures and shasums. When reputable people who can tell everyone they were able to reproduce the project's build, others at least have a secondary source of validation.
-<li><b>What is the </b><a href='#' class=bot>build bot</a><b>?</b> This is a GitHub automation create to automaticaly try to build a few of the projects. It is not as <i>trustworthy</i> as a reputable community member, but it is at least one more source of evidence. If click on the "Build Bot" tag, it will take you to the build script used.
+<li><b>What is the</b><a href='#' class=bot>build bot</a><b>?</b> This is a GitHub automation create to automaticaly try to build a few of the projects. It is not as <i>trustworthy</i> as a reputable community member, but it is at least one more source of evidence. If click on the "Build Bot" tag, it will take you to the build script used.
 </ul>
 	
 <h2>Other Resources</h2>
 	
 <ul class="faq">
-	<li><a href="https://walletsrecovery.org/">WalletsRecovery</a> - Wallets Derivation Paths and other recovery information.
+	<li><a href="https://walletsrecovery.org/">WalletsRecovery</a> - Wallets Derivation Paths and other recovery information.</li>
 	<li>"Bitcoin Extended Public Key Converter" by Jameson Lopp <a href="https://jlopp.github.io/xpub-converter/" rel="nofollow">↗︎</a></li>
 	<li>"Mnemonic Code Converter" by Ian Coleman <a href="https://iancoleman.io/bip39/" rel="nofollow">↗︎</a></li>
 	<li>"HD-Wallet Scanner" by Alex Kaul <a href="https://github.com/alexk111/HD-Wallet-Scanner/">↗︎</a></li>
