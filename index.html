@@ -75,6 +75,7 @@ p, i, .text-secondary, li {
     display: inline-block;
     padding: 8px 8px;
     font-family: monospace;
+    word-break: break-all;
 }
 .faq li {
     display: block;
@@ -238,6 +239,49 @@ input:checked + .slider:before {
     border-radius: 5px;
     margin-top: -4px;
 }
+
+/* Responsive rules */
+
+@media (max-width: 639px) { 
+  /* Extra small */
+  main {
+      padding: 5px;
+  }
+  .hero {
+      font-size: 0.8em;
+  }
+}
+
+@media (min-width: 640px) { 
+  /* Small */
+  main {
+      padding: 10px;
+  }
+  .hero {
+      font-size: 1.2em;
+  }
+}
+
+@media (min-width: 768px) { 
+  /* Medium */
+  main {
+      padding: 20px;
+  }
+  .hero {
+      font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) { 
+  /* Large */
+  .hero {
+      font-size: 2em;
+  }
+}
+
+@media (min-width: 1280px) { 
+  /* Extra large */
+}
 </style>
 </head>
 <body>
@@ -257,6 +301,7 @@ input:checked + .slider:before {
 </ul>
 </section>
 
+<main>
 <section class="header">
 <pre class="hero">
 
@@ -502,7 +547,7 @@ is usually performed using cryptographically secure hash functions.</p>
 of artifacts. These may be upstream authors, distribution maintainers or any
 other distributor.</p>
 
-
+</main>
 
 <script type="text/javascript">
 	function darkMode() {
