@@ -1,3 +1,5 @@
+<html>
+<head>
 <title>BitcoinBinary.org - A repository of Reproducible Build Proofs for Bitcoin Projects</title>
 <link rel="icon" href="bitcoinbinary.org.png">
 <style>
@@ -21,6 +23,10 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+}
+h2 {
+    font-size: 28px !important;
+    font-family: monospace;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -49,24 +55,74 @@ table {
 }
 
 body{margin: 0px;font-family:sans-serif;width:100%;}
-.log {border: 1px solid #ddd;display:block;width:100%;list-style: none;margin-bottom:10px;}
+.hero, b, h2 {
+    color: #292524;
+}
+p, i, .text-secondary, li {
+    color: #78716c;
+}
+.log {
+    border: 4px solid #f5f5f4;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 10px;
+    padding: 3px;
+}
 .faq {display:block;margin:10px auto;}
-.log li, .faq li{display:inline-block;width:99%;padding:2px 6px;}
-.faq li b{margin-right:10px;}
-.log li:nth-child(even) {background: #eee;}
-.log li:hover{background:#ddd;}
-hr{margin:40px 0;}
+.log li{
+    display: inline-block;
+    padding: 8px 8px;
+    font-family: monospace;
+    word-break: break-all;
+}
+.faq li {
+    display: block;
+    padding: 6px 6px;
+    color: #78716c;
+}
+.faq li b {
+    margin-right:10px;
+}
+.log li:nth-child(even) {background: #f5f5f4;}
+a {
+    color: #CC4E0A;
+}
+a:hover {
+    color: #ea580c;
+}
+.log li:hover{background: #e7e5e4;}
+.main-divider {
+    border-color: #ea580c;
+    border-width: 4px;
+}
+hr {
+    margin: 40px 0;
+    border-style: solid;
+    border-color: #ea580c;
+    border-width: 1px;
+}
 a {text-decoration:none;}
 .header{text-align:center;}
 pre{font-size: 2em;font-family: monospace;}
 b{font-weight:bold;}
 p{margin-bottom:10px;}
 h1{font-size:2em;font-weight:bold;margin-bottom:20px;display:block;}
-h2{font-size:1.2em;font-weight:bold;margin-bottom:16px;display:block;}
+h2{font-size:1.2em;font-weight:bold;margin-bottom:16px;display:block;margin-top:32px}
 .project-name, .cta{font-weight:bold;text-transform: uppercase;}
 .menu{display:block;top:0;width:100%;background:#eee;padding:0px 0px;text-align:center;margin-bottom:40px;}
 .header{width:100%;max-width:1180px;text-align:center;margin: 0px auto;display:block;}
-.content{width:100%;max-width:1180px;text-align:left;margin: 0px auto;display:block;}
+
+.content{
+  width:100%;
+  max-width:1180px;
+  text-align:left;
+  margin: 0px auto;
+  display:block;
+  padding-bottom: 60px;
+}
+
 i{font-style: italic;}
 .menu li{display:inline-block;padding:4px 0px;}
 .menu ul > li + li {margin-left: 10px;padding-left: 10px;border-left: 1px solid #ccc;}
@@ -76,20 +132,31 @@ i{font-style: italic;}
 	background-color: #080808;
 	color: #9c9c9c;
 }
+.dark-mode .hero, .dark-mode b, .dark-mode h2 {
+    color: #f9fafb;
+}
 .dark-mode a {
 	color: f7931a;
 }
+.dark-mode .log {
+    border-color: #262626;
+}
 .dark-mode .log li:nth-child(even) {
-	background: #131313;
+	background: #262626;
 }
 .dark-mode .log li:hover {
-	background: #414141;
+	background: #525252;
 }
 .dark-mode .menu ul {
-	background-color: #080808;
+	background-color: #262626;
 }
-.dark-mode .menu li {
-	background-color: #080808;
+.dark-mode .menu ul > li + li {border-left: 1px solid #44403c;}
+.dark-mode .bot{
+    color: #fb923c;
+    background: #7c2d12;
+    border: 1px solid #fb923c;
+    border-radius: 5px;
+    margin-top: -4px;
 }
 
 /* The dark mode button switch - the box around the slider */
@@ -175,7 +242,52 @@ input:checked + .slider:before {
     border-radius: 5px;
     margin-top: -4px;
 }
+
+/* Responsive rules */
+
+@media (max-width: 639px) { 
+  /* Extra small */
+  main {
+      padding: 5px;
+  }
+  .hero {
+      font-size: 0.8em;
+  }
+}
+
+@media (min-width: 640px) { 
+  /* Small */
+  main {
+      padding: 10px;
+  }
+  .hero {
+      font-size: 1.2em;
+  }
+}
+
+@media (min-width: 768px) { 
+  /* Medium */
+  main {
+      padding: 20px;
+  }
+  .hero {
+      font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) { 
+  /* Large */
+  .hero {
+      font-size: 2em;
+  }
+}
+
+@media (min-width: 1280px) { 
+  /* Extra large */
+}
 </style>
+</head>
+<body>
 
 <section class="menu">
 <ul>
@@ -188,11 +300,13 @@ input:checked + .slider:before {
 			<input type="checkbox" onclick="darkMode()">
 			<span class="slider round"></span>
 		</label>
+	</li>
 </ul>
 </section>
 
+<main>
 <section class="header">
-<pre>
+<pre class="hero">
 
 
 ██████  ██ ████████  ██████  ██████  ██ ███    ██
@@ -211,7 +325,7 @@ input:checked + .slider:before {
        
 
 </pre>
-<i>Complex problems, simple solutions... <i>less fud</i> - BitcoinBinary.org is a repository of Reproducible Build Proofs for Bitcoin Projects</i>
+<i class="text-secondary">Complex problems, simple solutions... <i>less fud</i> - BitcoinBinary.org is a repository of Reproducible Build Proofs for Bitcoin Projects</i>
 </section>
 
 
@@ -221,7 +335,7 @@ input:checked + .slider:before {
 <!--- Example:
 <a href="link to vendor release announcement">YYYY-MM-DD</a> | <a href="wallet site">wallet name</a>  | software version #.##.## <a href="src link">[src]</a> | SHA256 | <a href="wallet site">link to video</a> | notes | <a href="link to some public profile">builder name</a>
 --->
-<hr>
+<hr class="main-divider">
 
 <h2>Binary Log:</h2>
 <ul class="log">
@@ -374,7 +488,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/releases/tag/2024-05-06T1812-v1.2.0Q'>v1.2.0Q</a> |
          <a href="https://twitter.com/AVirgovic/status/1787831455021715656">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory c7c79a21c206e8b0e816c86ef1b43cd6932cb767ed97291d5fbc2f0e749f95b7</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory c7c79a21c206e8b0e816c86ef1b43cd6932cb767ed97291d5fbc2f0e749f95b7</a> |
          <a href='https://youtu.be/-lX-WIIQKIM'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -383,7 +497,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/releases/tag/2024-05-06T1811-v5.3.0'>v5.3.0</a> |
          <a href="https://twitter.com/AVirgovic/status/1787824271097483312">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory bab6818787eec45ef28b6c297e2504ffd4fa041ab19da8a3fd27543dffe876b8</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory bab6818787eec45ef28b6c297e2504ffd4fa041ab19da8a3fd27543dffe876b8</a> |
          <a href='https://youtu.be/tz2hrXYrhEw'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -392,7 +506,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/commit/4faa4303febc616ebca097355fae426dbc2661b2'>v1.1.0Q</a> |
          <a href="https://x.com/AVirgovic/status/1775230189221322918">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 101f336310b9b460d717d91d2572ea9e9ef7ac3edbdaf132c7c3aa46bb89050a</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 101f336310b9b460d717d91d2572ea9e9ef7ac3edbdaf132c7c3aa46bb89050a</a> |
          <a href='https://youtu.be/wNQpWHZDI4M'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -401,7 +515,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/commit/e96fe126635b38f798c82ca9b95a2ccac67d4168'>v1.0.1Q</a> |
          <a href="https://x.com/AVirgovic/status/1768385880559948049">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 6ea843a56e87d7d811d90be6bfa4703794bbc8318d9709e88ada05740e03b12d</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 6ea843a56e87d7d811d90be6bfa4703794bbc8318d9709e88ada05740e03b12d</a> |
          <a href='https://youtu.be/ct1iDJLI-j8'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -410,7 +524,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/releases/tag/2024-01-18T1507-v6.2.2X'>v6.2.2X</a> |
          <a href="https://twitter.com/AVirgovic/status/1748377265656787406">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory a9d0b416c3cb4f122f2826283fce82bbc5fe4464817b601a3a5787b1f8aaba20</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory a9d0b416c3cb4f122f2826283fce82bbc5fe4464817b601a3a5787b1f8aaba20</a> |
          <a href='https://youtu.be/6zkrmQ3zQyI'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -419,7 +533,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/releases/tag/2023-12-21T1526-v5.2.2'>v5.2.2</a> |
          <a href="https://twitter.com/AVirgovic/status/1737874358331207888">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 4651fb81dc04ac07ae53535f4246ef7f32611c50853de9edaefa68f3c64e1fac</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 4651fb81dc04ac07ae53535f4246ef7f32611c50853de9edaefa68f3c64e1fac</a> |
          <a href='https://youtu.be/1Vq9cshuD9k'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -428,7 +542,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/releases/tag/2023-10-26T1343-v6.2.1X'>v6.2.1X</a> |
          <a href="https://twitter.com/AVirgovic/status/1721849010514723042">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory f4457dc44d08cbed9517e6260aa7163ecc254457276d3cdb0c2611af0f49ba9b</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory f4457dc44d08cbed9517e6260aa7163ecc254457276d3cdb0c2611af0f49ba9b</a> |
          <a href='https://youtu.be/OAPkrdCNRew'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -437,7 +551,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/releases/tag/2023-10-10T1735-v5.2.0'>v5.2.0</a> |
          <a href="https://twitter.com/AVirgovic/status/1721846927178772522">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 7fbed097d2757b21fde920f4b10f5f50d7e1aeca01ff52186dfde4883af5cace</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 7fbed097d2757b21fde920f4b10f5f50d7e1aeca01ff52186dfde4883af5cace</a> |
          <a href='https://youtu.be/89nAoN2xvBY'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -446,7 +560,7 @@ input:checked + .slider:before {
          <a href='https://coldcard.com' class='project-name'>coldcard</a> |
          <a href='https://github.com/Coldcard/firmware/releases/tag/2023-09-08T2009-v5.1.4'>v5.1.4</a> |
          <a href="https://x.com/AVirgovic/status/1701554603613995069?s=20">tweet</a> |
-         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory fd707f2f69d006c9db84ceacd2a0dde79c3cb71730750e2676af610942898717</a>|
+         <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory fd707f2f69d006c9db84ceacd2a0dde79c3cb71730750e2676af610942898717</a> |
          <a href='https://www.youtube.com/watch?v=SEX3YrXMc9E'>video proof</a> |
          <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a>
      </li>
@@ -459,13 +573,13 @@ input:checked + .slider:before {
 		  <a href="https://www.youtube.com/watch?v=Y59KacZNIdQ">video proof</a> | 
 		  <a href="https://gist.github.com/xavierfiechter/0b7323318ada8937f817606dff8fdb57">notes & instruction</a>
      </li>					
-     <li><a href='https://github.com/bitcoin/bitcoin/releases/tag/v24.0.1'>2023-01-09</a> | <a href='https://bitcoin.org/' class='project-name'>bitcoin-core</a> | <a href='https://github.com/bitcoin/bitcoin/releases/tag/v24.0.1'>v24.0.1</a> | <a href='https://bitcoincore.org/bin/bitcoin-core-v24.0.1/SHA256SUMS'> factory 4203e099bf8c044e9533a33a9a4b693f3d9fa5933784eaa4b01d84458568dde5 </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/bitcoin-core/bitcoin-core-v24.0.1-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/bitcoin-core/artifacts.sh' class=bot>build bot</a></li>
-     <li><a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.4-beta'>2022-11-07</a> | <a href='https://lightning.network/' class='project-name'>lnd</a> | <a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.4-beta'>v0.15.4-beta</a> | <a href='https://github.com/lightningnetwork/lnd/releases/download/v0.15.4-beta/manifest-v0.15.4-beta.txt'> factory dab6fa0ca80cba8cdac47ccd9fa2f2705a5cc2b2b0b67066bc335ecbeda5c700 </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/lnd/lnd-v0.15.4-beta-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/lnd/artifacts.sh' class=bot>build bot</a></li>
-     <li><a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.3-beta'>2022-10-27</a> | <a href='https://lightning.network/' class='project-name'>lnd</a> | <a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.3-beta'>v0.15.3-beta</a> | <a href='https://github.com/lightningnetwork/lnd/releases/download/v0.15.3-beta/manifest-v0.15.3-beta.txt'> factory </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/lnd/lnd-v0.15.3-beta-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/lnd/artifacts.sh' class=bot>build bot</a></li>
-     <li><a href='https://github.com/cculianu/Fulcrum/releases/tag/v1.8.2'>2022-10-24</a> | <a href='' class='project-name'>Fulcrum</a> | <a href='https://github.com/cculianu/Fulcrum/releases/tag/v1.8.2'>v1.8.2</a> | <a href='https://github.com/cculianu/Fulcrum/releases/tag/v1.8.2'> factory 115460020d74c5a9bea4d2020e881d74367faefea421ff445e24d18f3c1d1998 </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/Fulcrum/Fulcrum-1.8.2-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/Fulcrum/artifacts.sh' class=bot>build bot</a></li>
-     <li><a href='https://github.com/nbd-wtf/poncho/releases/tag/v0.3.0'>2022-10-23</a> | <a href='https://github.com/nbd-wtf/poncho' class='project-name'>poncho</a> | <a href='https://github.com/nbd-wtf/poncho/releases/tag/v0.3.0'>v0.3.0</a> | <a href='https://github.com/nbd-wtf/poncho/releases/tag/v0.3.0'> factory 811592a94f2be0f5d8f43ca4efc97f2f7963c945cd037322ad43ede06a52ddc4 </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/poncho/poncho-v0.3.0-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/poncho/artifacts.sh' class=bot>build bot</a></li>
-     <li><a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.7'>2022-10-12</a> | <a href='https://coldcard.com' class='project-name'>coldcard</a> | <a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.7'>v5.0.7</a> | <a href="https://twitter.com/AVirgovic/status/1580213069393063937">tweet</a> | <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 010827a60ebfc25b8a6e2bb94cc69b938419957ac6d4a9b6c0b1357c4c6c8632</a>| <a href='https://www.youtube.com/watch?v=HVraLYxMsA4'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a></li>
-     <li><a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.6'>2022-10-12</a> | <a href='https://coldcard.com' class='project-name'>coldcard</a> | <a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.6'>v5.0.6</a> | <a href="https://twitter.com/AVirgovic/status/1580221810548756481">tweet</a> | <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 884f373717c9c605920a1dc29e0f890bf7b3cc6b141666814e396094aeedb3f8</a>| <a href='https://www.youtube.com/watch?v=3yLs71a-vPs'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a></li>
+     <li><a href='https://github.com/bitcoin/bitcoin/releases/tag/v24.0.1'>2023-01-09</a> | <a href='https://bitcoin.org/' class='project-name'>bitcoin-core</a> | <a href='https://github.com/bitcoin/bitcoin/releases/tag/v24.0.1'>v24.0.1</a> | <a href='https://bitcoincore.org/bin/bitcoin-core-v24.0.1/SHA256SUMS'> factory 4203e099bf8c044e9533a33a9a4b693f3d9fa5933784eaa4b01d84458568dde5 </a> | <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/bitcoin-core/bitcoin-core-v24.0.1-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/bitcoin-core/artifacts.sh' class=bot>build bot</a></li>
+     <li><a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.4-beta'>2022-11-07</a> | <a href='https://lightning.network/' class='project-name'>lnd</a> | <a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.4-beta'>v0.15.4-beta</a> | <a href='https://github.com/lightningnetwork/lnd/releases/download/v0.15.4-beta/manifest-v0.15.4-beta.txt'> factory dab6fa0ca80cba8cdac47ccd9fa2f2705a5cc2b2b0b67066bc335ecbeda5c700 </a> | <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/lnd/lnd-v0.15.4-beta-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/lnd/artifacts.sh' class=bot>build bot</a></li>
+     <li><a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.3-beta'>2022-10-27</a> | <a href='https://lightning.network/' class='project-name'>lnd</a> | <a href='https://github.com/lightningnetwork/lnd/releases/tag/v0.15.3-beta'>v0.15.3-beta</a> | <a href='https://github.com/lightningnetwork/lnd/releases/download/v0.15.3-beta/manifest-v0.15.3-beta.txt'> factory </a> | <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/lnd/lnd-v0.15.3-beta-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/lnd/artifacts.sh' class=bot>build bot</a></li>
+     <li><a href='https://github.com/cculianu/Fulcrum/releases/tag/v1.8.2'>2022-10-24</a> | <a href='' class='project-name'>Fulcrum</a> | <a href='https://github.com/cculianu/Fulcrum/releases/tag/v1.8.2'>v1.8.2</a> | <a href='https://github.com/cculianu/Fulcrum/releases/tag/v1.8.2'> factory 115460020d74c5a9bea4d2020e881d74367faefea421ff445e24d18f3c1d1998 </a> | <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/Fulcrum/Fulcrum-1.8.2-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/Fulcrum/artifacts.sh' class=bot>build bot</a></li>
+     <li><a href='https://github.com/nbd-wtf/poncho/releases/tag/v0.3.0'>2022-10-23</a> | <a href='https://github.com/nbd-wtf/poncho' class='project-name'>poncho</a> | <a href='https://github.com/nbd-wtf/poncho/releases/tag/v0.3.0'>v0.3.0</a> | <a href='https://github.com/nbd-wtf/poncho/releases/tag/v0.3.0'> factory 811592a94f2be0f5d8f43ca4efc97f2f7963c945cd037322ad43ede06a52ddc4 </a> | <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/poncho/poncho-v0.3.0-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/poncho/artifacts.sh' class=bot>build bot</a></li>
+     <li><a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.7'>2022-10-12</a> | <a href='https://coldcard.com' class='project-name'>coldcard</a> | <a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.7'>v5.0.7</a> | <a href="https://twitter.com/AVirgovic/status/1580213069393063937">tweet</a> | <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 010827a60ebfc25b8a6e2bb94cc69b938419957ac6d4a9b6c0b1357c4c6c8632</a> | <a href='https://www.youtube.com/watch?v=HVraLYxMsA4'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a></li>
+     <li><a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.6'>2022-10-12</a> | <a href='https://coldcard.com' class='project-name'>coldcard</a> | <a href='https://github.com/Coldcard/firmware/releases/tag/2022-07-29T1817-v5.0.6'>v5.0.6</a> | <a href="https://twitter.com/AVirgovic/status/1580221810548756481">tweet</a> | <a href='https://raw.githubusercontent.com/Coldcard/firmware/master/releases/signatures.txt'> factory 884f373717c9c605920a1dc29e0f890bf7b3cc6b141666814e396094aeedb3f8</a> | <a href='https://www.youtube.com/watch?v=3yLs71a-vPs'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/coldcard/artifacts.sh' class=bot>build bot</a></li>
      <li><a href='https://github.com/ElementsProject/lightning/releases/tag/v0.12.0'>2022-09-12</a> | <a href='' class='project-name'>cln</a> | <a href='https://github.com/ElementsProject/lightning/releases/tag/v0.12.0'>v0.12.0</a> | <a href='https://github.com/ElementsProject/lightning/releases/download/v0.12.0/SHA256SUMS'> factory e44851d9995e822cf44370bcf99a37cbc152a8fd2c861cad5fc922b3d8379f3f </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/cln/cln-0.12.0-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/cln/artifacts.sh' class=bot>build bot</a></li>
      <li><a href='https://github.com/romanz/electrs/releases/tag/v0.9.9'>2022-09-05</a> | <a href='https://github.com/romanz/electrs' class='project-name'>electrs</a> | <a href='https://github.com/romanz/electrs/releases/tag/v0.9.9'>v0.9.9</a> | <a href='https://github.com/romanz/electrs/releases/tag/v0.9.9'> factory </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/electrs/electrs-0.9.9-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/electrs/artifacts.sh' class=bot>build bot</a></li>
      <li><a href='https://github.com/cculianu/Fulcrum/releases/tag/1.7.0'>2022-09-05</a> | <a href='' class='project-name'>Fulcrum</a> | <a href='https://github.com/cculianu/Fulcrum/releases/tag/1.7.0'>1.7.0</a> | <a href='https://github.com/cculianu/Fulcrum/releases/tag/v1.7.0'> factory </a>| <a href='https://github.com/coinkite/bitcoinbinary.org/raw/main/Fulcrum/Fulcrum-1.7.0-video.webm'>video proof</a> | <a href='https://github.com/coinkite/bitcoinbinary.org/blob/main/Fulcrum/artifacts.sh' class=bot>build bot</a></li>
@@ -535,13 +649,13 @@ input:checked + .slider:before {
 <li><b>What's SHASUM?</b> TL;DR a summary digest that you can use to compare the bytes to make sure they match. More info <a href="https://www.commandlinux.com/man-page/man1/shasum.1.html">here</a>.
 <li><b>Who maintains this site?</b>At the moment @nvk who hopes to have more maintainers.<i>__looking at you__</i> <a href="https://github.com/coinkite/bitcoinbinary.org"> come help!</a>
 <li><b>Why should people care?</b>Most users are not capable of building from source code themselves, but we can at least get them able enough to check signatures and shasums. When reputable people who can tell everyone they were able to reproduce the project's build, others at least have a secondary source of validation.
-<li><b>What is the </b><a href='#' class=bot>build bot</a><b>?</b> This is a GitHub automation create to automaticaly try to build a few of the projects. It is not as <i>trustworthy</i> as a reputable community member, but it is at least one more source of evidence. If click on the "Build Bot" tag, it will take you to the build script used.
+<li><b>What is the</b><a href='#' class=bot>build bot</a><b>?</b> This is a GitHub automation create to automaticaly try to build a few of the projects. It is not as <i>trustworthy</i> as a reputable community member, but it is at least one more source of evidence. If click on the "Build Bot" tag, it will take you to the build script used.
 </ul>
 	
 <h2>Other Resources</h2>
 	
 <ul class="faq">
-	<li><a href="https://walletsrecovery.org/">WalletsRecovery</a> - Wallets Derivation Paths and other recovery information.
+	<li><a href="https://walletsrecovery.org/">WalletsRecovery</a> - Wallets Derivation Paths and other recovery information.</li>
 	<li>"Bitcoin Extended Public Key Converter" by Jameson Lopp <a href="https://jlopp.github.io/xpub-converter/" rel="nofollow">↗︎</a></li>
 	<li>"Mnemonic Code Converter" by Ian Coleman <a href="https://iancoleman.io/bip39/" rel="nofollow">↗︎</a></li>
 	<li>"HD-Wallet Scanner" by Alex Kaul <a href="https://github.com/alexk111/HD-Wallet-Scanner/">↗︎</a></li>
@@ -580,7 +694,7 @@ is usually performed using cryptographically secure hash functions.</p>
 of artifacts. These may be upstream authors, distribution maintainers or any
 other distributor.</p>
 
-
+</main>
 
 <script type="text/javascript">
 	function darkMode() {
@@ -588,3 +702,5 @@ other distributor.</p>
 	   element.classList.toggle("dark-mode");
 	}
 </script>
+</body>
+</html>
